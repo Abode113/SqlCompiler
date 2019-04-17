@@ -12,6 +12,7 @@ testing sample that worked and i am able to get usefull data from it is :
 
 
 // yes
+
 select prices.*, quantities.quantity, quantities.product, prices.quantity from pries
 inner join quantities on (prices.product = quantities.product)
 inner join othertable on (quantities.product = othertable.product)
@@ -21,6 +22,7 @@ inner join osecondtable on (othertable.product = osecondtable.product)
 
 
 // yes
+
 select prices.* from prices
 inner join quantities on (prices.product = quantities.product)
 inner join othertable on (quantities.product = othertable.product)
@@ -31,6 +33,7 @@ inner join osecondtable on (othertable.product = osecondtable.product)
 
 
 // no 
+
 select prices.*, quantities.quantity, quantities.product, prices.quantity from pries
 inner join quantities on prices.product = quantities.product
 inner join othertable on quantities.product = othertable.product
@@ -39,16 +42,19 @@ inner join osecondtable on othertable.product = osecondtable.product
 
 
 // yes
+
 select sum(quantities.quantity) from prices
 inner join quantities on (prices.product = quantities.product)
 inner join othertable on (quantities.product = othertable.product)
 inner join osecondtable on (othertable.product = osecondtable.product)
 
 // yes
+
 select sum(quantities.quantity) from prices
 
 
 // yes 
+
 select quantities.product, sum(quantities.quantity) from prices
 inner join quantities on (prices.product = quantities.product)
 inner join othertable on (quantities.product = othertable.product)
@@ -57,6 +63,7 @@ order by quantities.product
 
 
 // yes
+
 select quantities.product, sum(quantities.quantity) from prices
 inner join quantities on (prices.product = quantities.product)
 inner join othertable on (quantities.product = othertable.product)
@@ -68,6 +75,7 @@ order by (quantities.product, quantities.quantity)
 
 
 // yes 
+
 select prices.*, quantities.quantity, quantities.product, prices.quantity from pries
 inner join quantities on (prices.product = quantities.product)
 inner join othertable on (quantities.product = othertable.product)
