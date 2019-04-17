@@ -32,7 +32,9 @@ public class AST {
         System.out.println(visitor._queryData.QueryTables);
         System.out.println(visitor._queryData.selectList);
         System.out.println(visitor._queryData.OnStatement);
+        System.out.println(visitor._queryData.WhereClauseStatement);
         System.out.println(visitor._queryData.OrderByList);
+        System.out.println(visitor._queryData.GroupByList);
         System.out.println("hey");
 
 

@@ -447,6 +447,9 @@ for(int i=0;i<type.tabl.size();i++) {
 //                    strings[1] = "";
 //                    this._queryData.OrderByList.add(strings);
                     break;
+                case "group":
+                    this._queryData.GroupByList = new ArrayList<>();
+                    break;
                 case "by":
                     // dont do any thing
                     //this._queryData.OrderByList.get(this._queryData.OrderByList.size() - 1)[0] = this._queryData.OrderByList.get(this._queryData.OrderByList.size() - 1)[0] + ctx.start.getText();
@@ -483,6 +486,9 @@ for(int i=0;i<type.tabl.size();i++) {
 //                    strings[1] = "";
 //                    this._queryData.OrderByList.add(strings);
                     break;
+                case "group":
+                    this._queryData.GroupByList = new ArrayList<>();
+                    break;
                 case "by":
                     // dont do any thing
                     //this._queryData.OrderByList.get(this._queryData.OrderByList.size() - 1)[0] = this._queryData.OrderByList.get(this._queryData.OrderByList.size() - 1)[0] + ctx.start.getText();
@@ -504,9 +510,15 @@ for(int i=0;i<type.tabl.size();i++) {
     // may get here other than table name like on or order
     @Override
     public Object visitExpr_func(hqlParser.Expr_funcContext ctx) {
-        if(!ctx.start.getText().equals("on") && !ctx.start.getText().equals("order")) {
+        if(!ctx.start.getText().equals("on")
+                && !ctx.start.getText().equals("order")
+                && !ctx.start.getText().equals("group")) {
         String[] value = {ctx.start.getText(), ""};
         this._queryData.QueryTables.add(value);
+        }else if(ctx.start.getText().equals("order")){
+            this._queryData.OrderByList = new ArrayList<>();
+        }else if(ctx.start.getText().equals("group")){
+            this._queryData.GroupByList = new ArrayList<>();
         }
         //System.out.println(ctx.start.getText());
         return this.visitChildren(ctx);
@@ -529,6 +541,9 @@ for(int i=0;i<type.tabl.size();i++) {
         //System.out.println(ctx.start.getText());
         if(this._queryData.OrderByList != null){
             this._queryData.OrderByList.add(ctx.start.getText() + "." + ctx.stop.getText());
+        }
+        if(this._queryData.GroupByList != null){
+            this._queryData.GroupByList.add(ctx.start.getText() + "." + ctx.stop.getText());
         }
 
         return this.visitChildren(ctx);
@@ -584,28 +599,115 @@ for(int i=0;i<type.tabl.size();i++) {
 
     @Override
     public Object visitFunc_param(hqlParser.Func_paramContext ctx) {
-        if(this._queryData.OrderByList == null) {
+        if(this._queryData.OrderByList == null && this._queryData.GroupByList == null) {
             String[] strings = new String[3];
             int i = 0;
             for (int j = 0; j < ctx.children.size(); j++) {
                 strings[i] = ctx.children.get(j).getText();
                 i++;
             }
-            this._queryData.OnStatement.add(strings);
+            if(this._queryData.WhereClauseStatement == null) {
+                this._queryData.OnStatement.add(strings);
+            }else{
+                this._queryData.WhereClauseStatement.add(strings);
+            }
         }
         return this.visitChildren(ctx);
     }
 
     @Override
     public Object visitBool_expr_binary(hqlParser.Bool_expr_binaryContext ctx) {
-        System.out.println(ctx.children.get(0).getChild(0).getChild(0).getChild(0).getText());
+        //System.out.println(ctx.children.get(0).getChild(0).getChild(0).getChild(0).getText());
         String[] strings = new String[3];
         strings[0] = ctx.children.get(0).getChild(0).getChild(0).getChild(0).getText() + "." + ctx.children.get(0).getChild(0).getChild(0).getChild(2).getText();
         strings[1] = ctx.children.get(1).getText();
-        strings[2] = ctx.children.get(2).getChild(0).getChild(0).getChild(0).getText() + "." + ctx.children.get(0).getChild(0).getChild(0).getChild(2).getText();
-        this._queryData.OnStatement.add(strings);
+        if(this._queryData.WhereClauseStatement == null) {
+            strings[2] = ctx.children.get(2).getChild(0).getChild(0).getChild(0).getText() + "." + ctx.children.get(2).getChild(0).getChild(0).getChild(2).getText();
+            this._queryData.OnStatement.add(strings);
+        }else{
+            strings[2] = ctx.children.get(2).getChild(0).getChild(0).getChild(0).getText();
+            this._queryData.WhereClauseStatement.add(strings);
+        }
         return this.visitChildren(ctx);
     }
+
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    // TO CATCH WHERE CLAUSE
+
+    @Override
+    public Object visitWhere_clause(hqlParser.Where_clauseContext ctx) {
+        this._queryData.WhereClauseStatement = new ArrayList<>();
+        return this.visitChildren(ctx);
+    }
+
+    @Override
+    public Object visitBool_expr_logical_operator(hqlParser.Bool_expr_logical_operatorContext ctx) {
+
+        String[] strings = new String[3];
+        strings[0] = ctx.start.getText();
+        this._queryData.WhereClauseStatement.add(strings);
+        return this.visitChildren(ctx);
+    }
+
+    @Override
+    public Object visitBool_expr(hqlParser.Bool_exprContext ctx) {
+        if(this._queryData.WhereClauseStatement != null) {
+            if(ctx.start.getText().equals("(") || ctx.start.getText().equals(")")) {
+                String[] strings = new String[3];
+                strings[0] = ctx.start.getText();
+                this._queryData.WhereClauseStatement.add(strings);
+            }
+
+            Object obj = this.visitChildren(ctx);
+
+            if(ctx.stop.getText().equals("(") || ctx.stop.getText().equals(")")) {
+                String[] strings = new String[3];
+                strings[0] = ctx.stop.getText();
+                this._queryData.WhereClauseStatement.add(strings);
+            }
+
+            return obj;
+        }else{
+            return this.visitChildren(ctx);
+        }
+    }
+
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    // TO CATCH WHERE CLAUSE
+
+    @Override
+    public Object visitGroup_by_clause(hqlParser.Group_by_clauseContext ctx) {
+        this._queryData.GroupByList = new ArrayList<>();
+        return this.visitChildren(ctx);
+    }
+
 
     //----------------------------------------------------------------------------------------------------------
     //----------------------------------------------------------------------------------------------------------

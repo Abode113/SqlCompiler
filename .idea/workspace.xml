@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4116b06b-a1b0-44d0-af3a-0a86d3fc47a4" name="Default Changelist" comment="" />
+    <list default="true" id="4116b06b-a1b0-44d0-af3a-0a86d3fc47a4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestedSamples.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TestedSamples.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group38-compiler/src/AST.java" beforeDir="false" afterPath="$PROJECT_DIR$/group38-compiler/src/AST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group38-compiler/src/MyVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/group38-compiler/src/MyVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group38-compiler/src/queryData.java" beforeDir="false" afterPath="$PROJECT_DIR$/group38-compiler/src/queryData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/group38-compiler/AST.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/group38-compiler/AST.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/group38-compiler/MyVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/group38-compiler/MyVisitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/group38-compiler/queryData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/group38-compiler/queryData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/group38-compiler/hql.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="50" column="7" lean-forward="true" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
+            <state relative-caret-position="78">
+              <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
             </state>
           </provider>
         </entry>
@@ -27,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/group38-compiler/src/AST.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
+            <state relative-caret-position="91">
+              <caret line="29" column="36" lean-forward="true" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
               <folding>
                 <element signature="e#1109#1110#0" expanded="true" />
                 <element signature="e#1149#1150#0" expanded="true" />
@@ -40,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/group38-compiler/src/MyVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="597" lean-forward="true" selection-start-line="597" selection-end-line="597" />
+            <state relative-caret-position="141">
+              <caret line="620" column="38" lean-forward="true" selection-start-line="620" selection-start-column="38" selection-end-line="620" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#print#0;class#MyVisitor#0" />
@@ -97,17 +109,39 @@
                 <element signature="e#8530#8803#1" />
                 <element signature="method#visitNew_type#0;class#MyVisitor#0" />
                 <element signature="e#9047#9321#1" />
-                <marker date="1555523924824" expanded="true" signature="16021:16101" ph="..." />
+                <element signature="method#visitTable_name#0;class#MyVisitor#0" />
+                <element signature="method#visitSelect_list_alias#0;class#MyVisitor#0" />
+                <element signature="method#visitNon_reserved_words#0;class#MyVisitor#0" />
+                <element signature="e#13692#13852#0" />
+                <element signature="method#visitFrom_alias_clause#0;class#MyVisitor#0" />
+                <element signature="method#visitExpr_func#0;class#MyVisitor#0" />
+                <element signature="e#15034#15362#0" />
+                <element signature="method#visitSelect_list_item#0;class#MyVisitor#0" />
+                <element signature="method#visitExpr_agg_window_func#0;class#MyVisitor#0" />
+                <element signature="e#23876#24076#0" />
+                <marker date="1555533203232" expanded="true" signature="16273:16353" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="43" selection-start-column="43" selection-end-column="43" />
+            <state relative-caret-position="85">
+              <caret line="5" column="29" lean-forward="true" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="313">
+                <caret line="182" column="26" selection-start-line="182" selection-start-column="26" selection-end-line="182" selection-end-column="26" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -115,8 +149,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/group38-compiler/src/queryData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            <state relative-caret-position="68">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -156,11 +190,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>EOF</find>
-      <find>declare_block</find>
-      <find>stmt:</find>
-      <find>block:</find>
-      <find>block</find>
       <find>select_stmt</find>
       <find>t_select</find>
       <find>fullselect_stmt</find>
@@ -186,7 +215,15 @@
       <find>ctx.start.getText()</find>
       <find>, &quot;&quot;}</find>
       <find>System.out.println</find>
+      <find>order</find>
+      <find>OrderByList.add</find>
+      <find>non_res</find>
+      <find>[3]</find>
+      <find>WhereClauseStatement.add</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -195,10 +232,11 @@
         <option value="$PROJECT_DIR$/group38-compiler/src/tableList.java" />
         <option value="$PROJECT_DIR$/group38-compiler/src/CSVFiles.java" />
         <option value="$PROJECT_DIR$/group38-compiler/src/hqlParser.java" />
-        <option value="$PROJECT_DIR$/group38-compiler/src/AST.java" />
         <option value="$PROJECT_DIR$/group38-compiler/src/queryData.java" />
-        <option value="$PROJECT_DIR$/group38-compiler/src/MyVisitor.java" />
+        <option value="$PROJECT_DIR$/group38-compiler/src/AST.java" />
         <option value="$PROJECT_DIR$/test.txt" />
+        <option value="$PROJECT_DIR$/group38-compiler/src/MyVisitor.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -208,6 +246,7 @@
     <option name="width" value="1918" />
     <option name="height" value="1078" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -232,6 +271,12 @@
               <item name="38" type="462c0819:PsiDirectoryNode" />
               <item name="group38-compiler" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="38" type="b2602c69:ProjectViewProjectNode" />
+              <item name="38" type="462c0819:PsiDirectoryNode" />
+              <item name="group38-compiler" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -243,6 +288,7 @@
     <property name="$PROJECT_DIR$/group38-compiler/hql.g4::/gen-listener" value="true" />
     <property name="$PROJECT_DIR$/group38-compiler/hql.g4::/gen-visitor" value="true" />
     <property name="$PROJECT_DIR$/group38-compiler/hql.g4::/output-dir" value="D:\Downloads\compiler\proj\38\gen" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/group38-compiler/src" />
@@ -307,12 +353,12 @@
       <option name="presentableId" value="Default" />
       <updated>1555232149492</updated>
       <workItem from="1555232158007" duration="843000" />
-      <workItem from="1555233043796" duration="55193000" />
+      <workItem from="1555233043796" duration="63012000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56036000" />
+    <option name="totallyTimeSpent" value="63855000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -327,7 +373,7 @@
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15503356" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15503356" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -335,12 +381,12 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49932885" weight="0.3297587" />
-      <window_info anchor="bottom" id="ANTLR Preview" order="1" sideWeight="0.49798658" weight="0.37801608" />
+      <window_info anchor="bottom" id="ANTLR Preview" order="1" sideWeight="0.49798658" weight="0.38873994" />
       <window_info anchor="bottom" id="Tool Output" order="2" weight="0.3297587" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.3297587" />
       <window_info anchor="bottom" id="Run" order="5" sideWeight="0.49932885" weight="0.3914209" />
-      <window_info active="true" anchor="bottom" id="Debug" order="6" sideWeight="0.49731544" visible="true" weight="0.36461127" />
+      <window_info anchor="bottom" id="Debug" order="6" sideWeight="0.49731544" visible="true" weight="0.308311" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="9" weight="0.3297587" />
@@ -380,9 +426,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/group38-compiler/src/AST.java</url>
-          <line>35</line>
+          <line>37</line>
           <properties />
           <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/group38-compiler/src/MyVisitor.java</url>
+          <line>601</line>
+          <properties />
+          <option name="timeStamp" value="104" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -489,15 +541,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/group38-compiler/hql.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="50" column="7" lean-forward="true" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
+        <state relative-caret-position="78">
+          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/group38-compiler/src/queryData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -506,8 +558,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/group38-compiler/src/MyVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="597" lean-forward="true" selection-start-line="597" selection-end-line="597" />
+        <state relative-caret-position="141">
+          <caret line="620" column="38" lean-forward="true" selection-start-line="620" selection-start-column="38" selection-end-line="620" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#print#0;class#MyVisitor#0" />
@@ -563,15 +615,25 @@
             <element signature="e#8530#8803#1" />
             <element signature="method#visitNew_type#0;class#MyVisitor#0" />
             <element signature="e#9047#9321#1" />
-            <marker date="1555523924824" expanded="true" signature="16021:16101" ph="..." />
+            <element signature="method#visitTable_name#0;class#MyVisitor#0" />
+            <element signature="method#visitSelect_list_alias#0;class#MyVisitor#0" />
+            <element signature="method#visitNon_reserved_words#0;class#MyVisitor#0" />
+            <element signature="e#13692#13852#0" />
+            <element signature="method#visitFrom_alias_clause#0;class#MyVisitor#0" />
+            <element signature="method#visitExpr_func#0;class#MyVisitor#0" />
+            <element signature="e#15034#15362#0" />
+            <element signature="method#visitSelect_list_item#0;class#MyVisitor#0" />
+            <element signature="method#visitExpr_agg_window_func#0;class#MyVisitor#0" />
+            <element signature="e#23876#24076#0" />
+            <marker date="1555533203232" expanded="true" signature="16273:16353" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/group38-compiler/src/AST.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
+        <state relative-caret-position="91">
+          <caret line="29" column="36" lean-forward="true" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
           <folding>
             <element signature="e#1109#1110#0" expanded="true" />
             <element signature="e#1149#1150#0" expanded="true" />
@@ -581,8 +643,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="43" selection-start-column="43" selection-end-column="43" />
+        <state relative-caret-position="85">
+          <caret line="5" column="29" lean-forward="true" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="313">
+            <caret line="182" column="26" selection-start-line="182" selection-start-column="26" selection-end-line="182" selection-end-column="26" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
