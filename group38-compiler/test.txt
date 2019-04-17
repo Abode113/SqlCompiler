@@ -1,0 +1,3 @@
+CREATE TABLE CUSTOMER(string name, string birthday, int salary, string GSM, bool is_vip)
+
+
