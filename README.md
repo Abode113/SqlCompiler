@@ -183,3 +183,38 @@ where ((quantities.quantity > 10 and quantities.price > 30) or quantities.quanti
 group by (quantities.product)
 
 --------------------------------------------------------------------------------
+
+// yes
+
+// left join, right join, full outer join
+
+select quantities.product, sum(quantities.quantity) from prices
+left join quantities on (prices.product = quantities.product)
+right join othertable on (quantities.product = othertable.product)
+full outer join osecondtable on (othertable.product = osecondtable.product)
+where (quantities.quantity1 = 1 or (quantities.quantity > 10 and quantities.price > 30) or quantities.quantity = 0)
+group by (quantities.product)
+
+--------------------------------------------------------------------------------
+
+// yes
+
+// order with ASC and DSCE
+
+select quantities.product, max(quantities.quantity) from prices
+left join quantities on (prices.product = quantities.product)
+right join othertable on (quantities.product = othertable.product)
+full outer join osecondtable on (othertable.product = osecondtable.product)
+where (quantities.quantity1 = 1 or (quantities.quantity > 10 and quantities.price > 30) or quantities.quantity = 0)
+group by (quantities.product)
+order by (quantities.productsss) ASC
+
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+

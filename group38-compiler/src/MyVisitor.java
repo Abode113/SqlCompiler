@@ -11,6 +11,9 @@ public class MyVisitor extends hqlBaseVisitor<Object> {
     D_Type Type = new D_Type();
     queryData _queryData = new queryData();
 
+    boolean orderTurn = false;
+    boolean groupTurn = false;
+
 
     void print(D_Type type2) {
         System.out.println("print");
@@ -429,18 +432,40 @@ for(int i=0;i<type.tabl.size();i++) {
             //System.out.println(ctx.start.getText());
             switch (ctx.start.getText()) {
                 case "inner":
-                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("outerjoin")) && value.equals("")) {
+                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
                         this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText();
                     }
                     break;
+                case "left":
+                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                        this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText();
+                    }
+                    break;
+                case "right":
+                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                        this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText();
+                    }
+                    break;
+                case "outer":
+                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                        this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText();
+                    }
+                    break;
+                case "full":
+                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                        this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText() + ctx.children.get(1).getText();
+                    }
+                    break;
                 case "join":
-                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("outerjoin"))
+                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin"))
                             && (value.equals("inner") || value.equals("left") || value.equals("right") || value.equals("outer"))) {
                         this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText();
                     }
                     break;
                 case "order":
                     this._queryData.OrderByList = new ArrayList<>();
+                    groupTurn = false;
+                    orderTurn = true;
                     // dont do any thing
 //                    String[] strings = new String[2];
 //                    strings[0] = ctx.start.getText();
@@ -449,6 +474,8 @@ for(int i=0;i<type.tabl.size();i++) {
                     break;
                 case "group":
                     this._queryData.GroupByList = new ArrayList<>();
+                    groupTurn = true;
+                    orderTurn = false;
                     break;
                 case "by":
                     // dont do any thing
@@ -462,24 +489,47 @@ for(int i=0;i<type.tabl.size();i++) {
 
     @Override
     public Object visitFrom_join_type_clause(hqlParser.From_join_type_clauseContext ctx) {
+        //System.out.println(ctx.start.getText());
         if(this._queryData.QueryTables.size() >= 1) {
             String key = this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[0];
             String value = this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1];
             //System.out.println(ctx.start.getText());
             switch (ctx.start.getText()) {
                 case "inner":
-                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("outerjoin")) && value.equals("")) {
+                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
                         this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText() + ctx.stop.getText();
                     }
                     break;
+                case "left":
+                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                        this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText() + ctx.stop.getText();
+                    }
+                    break;
+                case "right":
+                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                        this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText() + ctx.stop.getText();
+                    }
+                    break;
+                case "outer":
+                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                        this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText() + ctx.stop.getText();
+                    }
+                    break;
+                case "full":
+                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                        this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText() + ctx.children.get(1).getText() + ctx.stop.getText();
+                    }
+                    break;
                 case "join":
-                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("outerjoin"))
+                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin"))
                             && (value.equals("inner") || value.equals("left") || value.equals("right") || value.equals("outer"))) {
                         this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText();
                     }
                     break;
                 case "order":
                     this._queryData.OrderByList = new ArrayList<>();
+                    groupTurn = false;
+                    orderTurn = true;
                     // dont do any thing
 //                    String[] strings = new String[2];
 //                    strings[0] = ctx.start.getText();
@@ -488,6 +538,8 @@ for(int i=0;i<type.tabl.size();i++) {
                     break;
                 case "group":
                     this._queryData.GroupByList = new ArrayList<>();
+                    groupTurn = true;
+                    orderTurn = false;
                     break;
                 case "by":
                     // dont do any thing
@@ -517,8 +569,12 @@ for(int i=0;i<type.tabl.size();i++) {
         this._queryData.QueryTables.add(value);
         }else if(ctx.start.getText().equals("order")){
             this._queryData.OrderByList = new ArrayList<>();
+            groupTurn = false;
+            orderTurn = true;
         }else if(ctx.start.getText().equals("group")){
             this._queryData.GroupByList = new ArrayList<>();
+            groupTurn = true;
+            orderTurn = false;
         }
         //System.out.println(ctx.start.getText());
         return this.visitChildren(ctx);
@@ -539,10 +595,10 @@ for(int i=0;i<type.tabl.size();i++) {
     @Override
     public Object visitExpr_atom(hqlParser.Expr_atomContext ctx) {
         //System.out.println(ctx.start.getText());
-        if(this._queryData.OrderByList != null){
+        if(this._queryData.OrderByList != null && !groupTurn){
             this._queryData.OrderByList.add(ctx.start.getText() + "." + ctx.stop.getText());
         }
-        if(this._queryData.GroupByList != null){
+        if(this._queryData.GroupByList != null && !orderTurn){
             this._queryData.GroupByList.add(ctx.start.getText() + "." + ctx.stop.getText());
         }
 
@@ -562,7 +618,7 @@ for(int i=0;i<type.tabl.size();i++) {
     //  TO CATCH SELECTED COLUMN
     @Override
     public Object visitSelect_list_item(hqlParser.Select_list_itemContext ctx) {
-        if(!ctx.start.getText().equals("sum")){
+        if(!ctx.start.getText().equals("sum") && !ctx.start.getText().equals("max")){
             String[] selectedList = new String[2];
             selectedList[0] = "none";
             String _stop = ctx.stop.getText();
@@ -673,10 +729,13 @@ for(int i=0;i<type.tabl.size();i++) {
 
             Object obj = this.visitChildren(ctx);
 
+
             if(ctx.stop.getText().equals("(") || ctx.stop.getText().equals(")")) {
-                String[] strings = new String[3];
-                strings[0] = ctx.stop.getText();
-                this._queryData.WhereClauseStatement.add(strings);
+                if(ctx.children.get(2).getText().equals(")")) {
+                    String[] strings = new String[3];
+                    strings[0] = ctx.stop.getText();
+                    this._queryData.WhereClauseStatement.add(strings);
+                }
             }
 
             return obj;
@@ -705,6 +764,8 @@ for(int i=0;i<type.tabl.size();i++) {
     @Override
     public Object visitGroup_by_clause(hqlParser.Group_by_clauseContext ctx) {
         this._queryData.GroupByList = new ArrayList<>();
+        groupTurn = true;
+        orderTurn = false;
         return this.visitChildren(ctx);
     }
 
@@ -712,6 +773,30 @@ for(int i=0;i<type.tabl.size();i++) {
     //----------------------------------------------------------------------------------------------------------
     //----------------------------------------------------------------------------------------------------------
     //----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    // TO CATCH WHERE CLAUSE
+
+    @Override
+    public Object visitOrder_by_clause(hqlParser.Order_by_clauseContext ctx) {
+        this._queryData.OrderByList = new ArrayList<>();
+        groupTurn = false;
+        orderTurn = true;
+        this._queryData.OrderByList.add(ctx.stop.getText());
+        return this.visitChildren(ctx);
+    }
+
+
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+
 }
 
 
