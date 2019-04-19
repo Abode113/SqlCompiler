@@ -211,6 +211,64 @@ order by (quantities.productsss) ASC
 
 --------------------------------------------------------------------------------
 
+// yes
+
+// distinct
+
+select distinct quantities.product, max(distinct quantities.quantity) from prices
+left join quantities on (prices.product = quantities.product)
+right join othertable on (quantities.product = othertable.product)
+full outer join osecondtable on (othertable.product = osecondtable.product)
+where (quantities.quantity1 = 1 or (quantities.quantity > 10 and quantities.price > 30) or quantities.quantity = 0)
+group by (quantities.product)
+order by (quantities.productsss) ASC
+
+--------------------------------------------------------------------------------
+
+// yes
+
+// with alias name of selected table ( as alias )
+
+select distinct quantities.product, max(distinct quantities.quantity) as aliasName from prices
+left join quantities on (prices.product = quantities.product)
+right join othertable on (quantities.product = othertable.product)
+full outer join osecondtable on (othertable.product = osecondtable.product)
+where (quantities.quantity1 = 1 or (quantities.quantity > 10 and quantities.price > 30) or quantities.quantity = 0)
+group by (quantities.product)
+order by (quantities.productsss) ASC
+
+--------------------------------------------------------------------------------
+
+// yes
+
+// drop table
+
+DROP TABLE tableName
+
+--------------------------------------------------------------------------------
+
+// yes
+
+// truncate table
+
+TRUNCATE TABLE tableName
+
+--------------------------------------------------------------------------------
+
+// yes
+
+// nvl function 
+
+select NVL(quantities.product, 'aboode'), NVL(quantities.quantity, 113) from prices
+left join quantities on (prices.product = quantities.product)
+right join othertable on (quantities.product = othertable.product)
+full outer join osecondtable on (othertable.product = osecondtable.product)
+where (quantities.quantity1 = 1 or (quantities.quantity > 10 and quantities.price > 30) or quantities.quantity = 0)
+group by (quantities.product)
+order by (quantities.productsss) ASC
+
+--------------------------------------------------------------------------------
+
 
 
 

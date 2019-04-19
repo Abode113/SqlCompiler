@@ -13,7 +13,10 @@ public class MyVisitor extends hqlBaseVisitor<Object> {
 
     boolean orderTurn = false;
     boolean groupTurn = false;
-
+    boolean distinct = false;
+    boolean drop = false;
+    boolean truncate = false;
+    boolean function = false;
 
     void print(D_Type type2) {
         System.out.println("print");
@@ -406,9 +409,17 @@ for(int i=0;i<type.tabl.size();i++) {
     public Object visitTable_name(hqlParser.Table_nameContext ctx) {
 
         //System.out.println(ctx.start.getText());
-
-        String[] value = {ctx.start.getText(), ""};
+        String str = "";
+        if(drop){
+            str = "drop";
+            drop = false;
+        }else if (truncate){
+            str = "truncate";
+            truncate = false;
+        }
+        String[] value = {ctx.start.getText(), str};
         this._queryData.QueryTables.add(value);
+        function = false;
 
         return this.visitChildren(ctx);
     }
@@ -416,9 +427,23 @@ for(int i=0;i<type.tabl.size();i++) {
     @Override
     public Object visitSelect_list_alias(hqlParser.Select_list_aliasContext ctx) {
         //System.out.println(ctx.start.getText());
+        if(ctx.start.getText().equals("as")){
+            this._queryData.selectList.get(this._queryData.selectList.size() - 1)[this._queryData.selectList.get(this._queryData.selectList.size() - 1).length - 1] = ctx.stop.getText();
+        }else{
+            String str = "";
+            if(drop){
+                str = "drop";
+                drop = false;
+            }else if (truncate){
+                str = "truncate";
+                truncate = false;
+            }
+            String[] value = {ctx.start.getText(), str};
+            this._queryData.QueryTables.add(value);
+            function = false;
+        }
 
-        String[] value = {ctx.start.getText(), ""};
-        this._queryData.QueryTables.add(value);
+
 
         return this.visitChildren(ctx);
     }
@@ -553,8 +578,17 @@ for(int i=0;i<type.tabl.size();i++) {
 
     @Override
     public Object visitFrom_alias_clause(hqlParser.From_alias_clauseContext ctx) {
-        String[] value = {ctx.start.getText(), ""};
+        String str = "";
+        if(drop){
+            str = "drop";
+            drop = false;
+        }else if (truncate){
+            str = "truncate";
+            truncate = false;
+        }
+        String[] value = {ctx.start.getText(), str};
         this._queryData.QueryTables.add(value);
+        function = false;
         //System.out.println(ctx.start.getText());
         return this.visitChildren(ctx);
     }
@@ -564,9 +598,19 @@ for(int i=0;i<type.tabl.size();i++) {
     public Object visitExpr_func(hqlParser.Expr_funcContext ctx) {
         if(!ctx.start.getText().equals("on")
                 && !ctx.start.getText().equals("order")
-                && !ctx.start.getText().equals("group")) {
-        String[] value = {ctx.start.getText(), ""};
-        this._queryData.QueryTables.add(value);
+                && !ctx.start.getText().equals("group")
+                && !ctx.start.getText().equals("NVL")) {
+            String str = "";
+            if(drop){
+                str = "drop";
+                drop = false;
+            }else if (truncate){
+                str = "truncate";
+                truncate = false;
+            }
+            String[] value = {ctx.start.getText(), str};
+            this._queryData.QueryTables.add(value);
+            function = false;
         }else if(ctx.start.getText().equals("order")){
             this._queryData.OrderByList = new ArrayList<>();
             groupTurn = false;
@@ -618,25 +662,53 @@ for(int i=0;i<type.tabl.size();i++) {
     //  TO CATCH SELECTED COLUMN
     @Override
     public Object visitSelect_list_item(hqlParser.Select_list_itemContext ctx) {
-        if(!ctx.start.getText().equals("sum") && !ctx.start.getText().equals("max")){
-            String[] selectedList = new String[2];
-            selectedList[0] = "none";
-            String _stop = ctx.stop.getText();
-            if(ctx.stop.getText().equals("join")){
-                _stop = ctx.children.get(0).getChild(0).getChild(0).getChild(2).getText();
+        if (!ctx.start.getText().equals("sum") && !ctx.start.getText().equals("max")) {
+            if(ctx.stop.getText().equals(")")){
+                String[] selectedList = new String[3];
+                selectedList[0] = "fun " + ctx.start.getText();
+                selectedList[1] = "param " + ctx.children.get(0).getChild(0).getChild(2).getChild(2).getText();
+                selectedList[2] = ctx.children.get(0).getChild(0).getChild(2).getChild(0).getChild(0).getChild(0).getChild(0).getChild(0).getText()
+                    + "." + ctx.children.get(0).getChild(0).getChild(2).getChild(0).getChild(0).getChild(0).getChild(0).getChild(2).getText();
+                this._queryData.selectList.add(selectedList);
+                function = true;
+            }else{
+                String[] selectedList = new String[3];
+                if (distinct) {
+                    selectedList[0] = "distinct";
+                    distinct = false;
+                } else {
+                    selectedList[0] = "none";
+                }
+                String _stop = ctx.stop.getText();
+                if (ctx.stop.getText().equals("join")) {
+                    _stop = ctx.children.get(0).getChild(0).getChild(0).getChild(2).getText();
+                }
+                selectedList[1] = ctx.start.getText() + "." + _stop;
+                selectedList[2] = "notAs";
+                this._queryData.selectList.add(selectedList);
             }
-            selectedList[1] = ctx.start.getText() + "." + _stop;
-            this._queryData.selectList.add(selectedList);
+
         }
         return this.visitChildren(ctx);
     }
 
     @Override
     public Object visitExpr_agg_window_func(hqlParser.Expr_agg_window_funcContext ctx) {
-        String[] selectedList = new String[2];
-        selectedList[0] = ctx.children.get(0).getText();
-        selectedList[1] = ctx.children.get(2).getText();
-        this._queryData.selectList.add(selectedList);
+        if(ctx.children.size() > 4){
+            String[] selectedList = new String[4];
+            selectedList[0] = ctx.children.get(0).getText();
+            selectedList[1] = ctx.children.get(2).getText();
+            selectedList[2] = ctx.children.get(3).getText();
+            selectedList[3] = "notAs";
+            this._queryData.selectList.add(selectedList);
+        }else{
+            String[] selectedList = new String[3];
+            selectedList[0] = ctx.children.get(0).getText();
+            selectedList[1] = ctx.children.get(2).getText();
+            selectedList[2] = "notAs";
+            this._queryData.selectList.add(selectedList);
+        }
+
         return this.visitChildren(ctx);
     }
 
@@ -644,6 +716,23 @@ for(int i=0;i<type.tabl.size();i++) {
     //----------------------------------------------------------------------------------------------------------
     //----------------------------------------------------------------------------------------------------------
 
+
+
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    // TO CATCH DISTINCT VALUE
+
+    @Override
+    public Object visitSelect_list_set(hqlParser.Select_list_setContext ctx) {
+        distinct = true;
+        return this.visitChildren(ctx);
+    }
+
+
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
 
 
 
@@ -655,7 +744,7 @@ for(int i=0;i<type.tabl.size();i++) {
 
     @Override
     public Object visitFunc_param(hqlParser.Func_paramContext ctx) {
-        if(this._queryData.OrderByList == null && this._queryData.GroupByList == null) {
+        if(!function && this._queryData.OrderByList == null && this._queryData.GroupByList == null) {
             String[] strings = new String[3];
             int i = 0;
             for (int j = 0; j < ctx.children.size(); j++) {
@@ -791,6 +880,51 @@ for(int i=0;i<type.tabl.size();i++) {
         this._queryData.OrderByList.add(ctx.stop.getText());
         return this.visitChildren(ctx);
     }
+
+
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    // TO CATCH DROP STATEMENT
+
+    @Override
+    public Object visitDrop_stmt(hqlParser.Drop_stmtContext ctx) {
+        drop = true;
+        return this.visitChildren(ctx);
+    }
+
+
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    // TO CATCH TRUNCATE STATEMENT
+
+    @Override
+    public Object visitTruncate_stmt(hqlParser.Truncate_stmtContext ctx) {
+        truncate = true;
+        return this.visitChildren(ctx);
+    }
+
+
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 
 
     //----------------------------------------------------------------------------------------------------------
