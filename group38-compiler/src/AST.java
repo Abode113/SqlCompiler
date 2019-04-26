@@ -35,6 +35,7 @@ public class AST {
         System.out.println(visitor._queryData.WhereClauseStatement);
         System.out.println(visitor._queryData.OrderByList);
         System.out.println(visitor._queryData.GroupByList);
+        System.out.println(visitor._queryData.HavingClauseStatement);
         System.out.println("hey");
 
 

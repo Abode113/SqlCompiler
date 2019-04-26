@@ -8,6 +8,7 @@ public class queryData {
     List<String[]> selectList;
     List<String[]> OnStatement;
     List<String[]> WhereClauseStatement;
+    List<String[]> HavingClauseStatement;
     List<String> OrderByList;
     List<String> GroupByList;
 

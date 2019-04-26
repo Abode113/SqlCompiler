@@ -253,4 +253,44 @@ order by (quantities.productsss) ASC
 
 --------------------------------------------------------------------------------
 
+// yes
+
+// having 
+
+select NVL(quantities.product, 'aboode'), NVL(quantities.quantity, 113) from prices
+left join quantities on (prices.product = quantities.product)
+right join othertable on (quantities.product = othertable.product)
+full outer join osecondtable on (othertable.product = osecondtable.product)
+where (quantities.quantity1 = 1 or ( quantities.quantity > 10 and quantities.price > 30) or quantities.quantity = 0)
+group by (quantities.product) having (h_quantities.h_quantity1 = 1 or (h_quantities.h_quantity > 10 and h_quantities.h_price > 30) or h_quantities.h_quantity = 0)
+order by (quantities.productsss) ASC
+
+--------------------------------------------------------------------------------
+
+// yes
+
+// support round function and support two parameter function with alias
+
+select distinct round(quantities.product, 2) as AliasName from prices
+left join quantities on (prices.product = quantities.product)
+right join othertable on (quantities.product = othertable.product)
+full outer join osecondtable on (othertable.product = osecondtable.product)
+where (quantities.quantity1 = 1 or ( quantities.quantity > 10 and quantities.price > 30) or quantities.quantity = 0)
+group by (quantities.product) having (h_quantities.h_quantity1 = 1 or (h_quantities.h_quantity > 10 and h_quantities.h_price > 30) or h_quantities.h_quantity = 0)
+order by (quantities.productsss) ASC
+
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
 
