@@ -14,8 +14,13 @@ public class MyVisitor extends hqlBaseVisitor<Object> {
     boolean orderTurn = false;
     boolean groupTurn = false;
     boolean distinct = false;
+
+    // MEAN THAT WE ARE PROCEESSING DROP STATEMENT
     boolean drop = false;
+
+    // MEAN THAT WE ARE PROCEESSING TRUNCATE STATEMENT
     boolean truncate = false;
+
     boolean function = false;
     boolean having = false;
     boolean join = false;
@@ -134,6 +139,8 @@ for(int i=0;i<type.tabl.size();i++) {
     @Override
     public Object visitProgram(hqlParser.ProgramContext ctx) {
         System.out.println("Program");
+
+        // INITIALIZATION OF SOME ARRAYLIST
         this._queryData.QueryTables = new ArrayList<>();
         this._queryData.selectList = new ArrayList<>();
         this._queryData.OnStatement = new ArrayList<>();
@@ -182,8 +189,6 @@ for(int i=0;i<type.tabl.size();i++) {
         }
 
         return visitChildren(ctx); }
-
-
 
     @Override public Object visitNew_for(hqlParser.New_forContext ctx) {
         System.out.println("New_for");
@@ -281,7 +286,6 @@ for(int i=0;i<type.tabl.size();i++) {
         return visitChildren(ctx);
     }
 
-
     void save_in_file(ArrayList<D_Type> types) {
     System.out.println("save_in_file");
     FileOutputStream fileOut = null;
@@ -315,7 +319,6 @@ for(int i=0;i<type.tabl.size();i++) {
 
 
 }
-
 
     @Override public Object visitCreate_function(hqlParser.Create_functionContext ctx) {
         System.out.println("Create_function");
@@ -366,8 +369,6 @@ for(int i=0;i<type.tabl.size();i++) {
 
         return visitChildren(ctx); }
 
-
-
     @Override public Object visitNew_type(hqlParser.New_typeContext ctx) {
         System.out.println("New_type");
 
@@ -407,20 +408,26 @@ for(int i=0;i<type.tabl.size();i++) {
     //----------------------------------------------------------------------------------------------------------
     //----------------------------------------------------------------------------------------------------------
     // TO CATCH JOINED TABLE
+
+    public void drop_truncate_process(){
+
+    }
+
     @Override
     public Object visitTable_name(hqlParser.Table_nameContext ctx) {
 
-        //System.out.println(ctx.start.getText());
         String str = "";
         if(drop){
             str = "drop";
-            drop = false;
+            drop = false;   // IF DROP ... ASSIGN TO STRING AND DISABLE DROP TURN
         }else if (truncate){
             str = "truncate";
-            truncate = false;
+            truncate = false;   // IF TRUNCATE ... ASSIGN TO STRING AND DISABLE TRUNCATE TURN
         }
-        String[] value = {ctx.start.getText(), str};
+        String[] value = {ctx.start.getText(), str};    //  TABLENAME , (DROP/TRUNCATE)
+        // ADD VALUE
         this._queryData.QueryTables.add(value);
+        //
         function = false;
 
         return this.visitChildren(ctx);
@@ -428,20 +435,23 @@ for(int i=0;i<type.tabl.size();i++) {
 
     @Override
     public Object visitSelect_list_alias(hqlParser.Select_list_aliasContext ctx) {
-        //System.out.println(ctx.start.getText());
-        if(ctx.start.getText().equals("as")){
+
+        if(ctx.start.getText().equalsIgnoreCase("as")){
+            //  CHANGE THE LAST ELEMENT IN SELECTLIST TO BE LIKE : AS ALIASNAME
             this._queryData.selectList.get(this._queryData.selectList.size() - 1)[this._queryData.selectList.get(this._queryData.selectList.size() - 1).length - 1] = "As " + ctx.stop.getText();
         }else{
             String str = "";
             if(drop){
                 str = "drop";
-                drop = false;
+                drop = false;   // IF DROP ... ASSIGN TO STRING AND DISABLE DROP TURN
             }else if (truncate){
                 str = "truncate";
-                truncate = false;
+                truncate = false;   // IF TRUNCATE ... ASSIGN TO STRING AND DISABLE TRUNCATE TURN
             }
-            String[] value = {ctx.start.getText(), str};
+            String[] value = {ctx.start.getText(), str};    //  TABLENAME , (DROP/TRUNCATE)
+            // ADD VALUE
             this._queryData.QueryTables.add(value);
+            //
             function = false;
         }
 
@@ -450,73 +460,128 @@ for(int i=0;i<type.tabl.size();i++) {
         return this.visitChildren(ctx);
     }
 
+
+    public boolean joinType_check_1(String Word){
+        if (
+                (
+                        !Word.equalsIgnoreCase("innerjoin")
+                     && !Word.equalsIgnoreCase("leftjoin")
+                     && !Word.equalsIgnoreCase("rightjoin")
+                     && !Word.equalsIgnoreCase("fullouterjoin")
+                )
+                && Word.equalsIgnoreCase("")
+        ) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean joinType_check_2(String Word){
+        if (
+                (
+                        !Word.equalsIgnoreCase("innerjoin")
+                     && !Word.equalsIgnoreCase("leftjoin")
+                     && !Word.equalsIgnoreCase("rightjoin")
+                     && !Word.equalsIgnoreCase("fullouterjoin")
+                )
+                && (
+                        Word.equalsIgnoreCase("inner")
+                     && Word.equalsIgnoreCase("left")
+                     && Word.equalsIgnoreCase("right")
+                     && Word.equalsIgnoreCase("outer")
+                )
+        ) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean joinType_check_3(String Word){
+        if(!Word.equalsIgnoreCase("on")
+                && !Word.equalsIgnoreCase("order")
+                && !Word.equalsIgnoreCase("group")
+                && !Word.equalsIgnoreCase("NVL")
+                && !Word.equalsIgnoreCase("round")
+        ) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean joinType_check_fun(String Word){
+        if (
+                !Word.equalsIgnoreCase("sum")
+             && !Word.equalsIgnoreCase("max")
+        ) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
     @Override
     public Object visitNon_reserved_words(hqlParser.Non_reserved_wordsContext ctx) {
 
-        if(this._queryData.QueryTables.size() >= 1) {
-            String key = this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[0];
+        if(this._queryData.QueryTables.size() >= 1) {   // IF THERE ARE AT LEAST ONE TABLE ... TO JOIN IT WITH OTHER
             String value = this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1];
-            //System.out.println(ctx.start.getText());
             switch (ctx.start.getText()) {
-                case "inner":
+                case "inner":   // ADD INNER STRING
                     join = true;
-                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                    if (joinType_check_1(value)) {
                         this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText();
                     }
                     break;
-                case "left":
+                case "left":    // ADD LEFT STRING
                     join = true;
-                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                    if (joinType_check_1(value)) {
                         this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText();
                     }
                     break;
-                case "right":
+                case "right":   // ADD RIGHT STRING
                     join = true;
-                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                    if (joinType_check_1(value)) {
                         this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText();
                     }
                     break;
-                case "outer":
+                case "outer":   // ADD OUTER STRING
                     join = true;
-                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                    if (joinType_check_1(value)) {
                         this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText();
                     }
                     break;
-                case "full":
+                case "full":    // ADD FULL STRING
                     join = true;
-                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                    if (joinType_check_1(value)) {
                         this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText() + ctx.children.get(1).getText();
                     }
                     break;
-                case "join":
+                case "join":    // ADD JOIN STRING OVER ( INNER,LEFT,RIGHT,FULL ....)
                     join = true;
-                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin"))
-                            && (value.equals("inner") || value.equals("left") || value.equals("right") || value.equals("outer"))) {
+                    if (joinType_check_2(value)) {
                         this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText();
                     }
                     break;
-                case "order":
+                case "order":   // ACCESS TO ORDER
                     this._queryData.OrderByList = new ArrayList<>();
+                    // STOP PROCESSING OF GROUP BY AND PROCESS ORDER
                     groupTurn = false;
                     orderTurn = true;
-                    // dont do any thing
-//                    String[] strings = new String[2];
-//                    strings[0] = ctx.start.getText();
-//                    strings[1] = "";
-//                    this._queryData.OrderByList.add(strings);
                     break;
-                case "group":
+                case "group":   // ACCESS TO GROUP
                     this._queryData.GroupByList = new ArrayList<>();
+                    // STOP PROCESSING OF ORDER BY AND PROCESS GROUP
                     groupTurn = true;
                     orderTurn = false;
                     break;
                 case "by":
                     // dont do any thing
-                    //this._queryData.OrderByList.get(this._queryData.OrderByList.size() - 1)[0] = this._queryData.OrderByList.get(this._queryData.OrderByList.size() - 1)[0] + ctx.start.getText();
                     break;
             }
         }
-        //System.out.println(ctx.start.getText());
         return this.visitChildren(ctx);
     }
 
@@ -528,65 +593,59 @@ for(int i=0;i<type.tabl.size();i++) {
             String value = this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1];
             //System.out.println(ctx.start.getText());
             switch (ctx.start.getText()) {
-                case "inner":
+                case "inner":   // ADD INNER STRING
                     join = true;
-                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                    if (joinType_check_1(value)) {
                         this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText() + ctx.stop.getText();
                     }
                     break;
-                case "left":
+                case "left":    // ADD LEFT STRING
                     join = true;
-                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                    if (joinType_check_1(value)) {
                         this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText() + ctx.stop.getText();
                     }
                     break;
-                case "right":
+                case "right":   // ADD RIGHT STRING
                     join = true;
-                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                    if (joinType_check_1(value)) {
                         this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText() + ctx.stop.getText();
                     }
                     break;
-                case "outer":
+                case "outer":   // ADD OUTER STRING
                     join = true;
-                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                    if (joinType_check_1(value)) {
                         this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText() + ctx.stop.getText();
                     }
                     break;
-                case "full":
+                case "full":    // ADD FULL STRING
                     join = true;
-                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin")) && value.equals("")) {
+                    if (joinType_check_1(value)) {
                         this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText() + ctx.children.get(1).getText() + ctx.stop.getText();
                     }
                     break;
-                case "join":
+                case "join":    // ADD JOIN STRING OVER ( INNER,LEFT,RIGHT,FULL ....)
                     join = true;
-                    if ((!value.equals("innerjoin") || !value.equals("leftjoin") || !value.equals("rightjoin") || !value.equals("fullouterjoin"))
-                            && (value.equals("inner") || value.equals("left") || value.equals("right") || value.equals("outer"))) {
+                    if (joinType_check_2(value)) {
                         this._queryData.QueryTables.get(this._queryData.QueryTables.size() - 1)[1] += ctx.start.getText();
                     }
                     break;
-                case "order":
+                case "order":   // ACCESS TO ORDER
                     this._queryData.OrderByList = new ArrayList<>();
+                    // STOP PROCESSING OF GROUP BY AND PROCESS ORDER
                     groupTurn = false;
                     orderTurn = true;
-                    // dont do any thing
-//                    String[] strings = new String[2];
-//                    strings[0] = ctx.start.getText();
-//                    strings[1] = "";
-//                    this._queryData.OrderByList.add(strings);
                     break;
-                case "group":
+                case "group":   // ACCESS TO GROUP
                     this._queryData.GroupByList = new ArrayList<>();
+                    // STOP PROCESSING OF ORDER BY AND PROCESS GROUP
                     groupTurn = true;
                     orderTurn = false;
                     break;
                 case "by":
                     // dont do any thing
-                    //this._queryData.OrderByList.get(this._queryData.OrderByList.size() - 1)[0] = this._queryData.OrderByList.get(this._queryData.OrderByList.size() - 1)[0] + ctx.start.getText();
                     break;
             }
         }
-        //System.out.println(ctx.start.getText());
         return this.visitChildren(ctx);
     }
 
@@ -595,44 +654,44 @@ for(int i=0;i<type.tabl.size();i++) {
         String str = "";
         if(drop){
             str = "drop";
-            drop = false;
+            drop = false;   // IF DROP ... ASSIGN TO STRING AND DISABLE DROP TURN
         }else if (truncate){
             str = "truncate";
-            truncate = false;
+            truncate = false;   // IF TRUNCATE ... ASSIGN TO STRING AND DISABLE TRUNCATE TURN
         }
-        String[] value = {ctx.start.getText(), str};
+        String[] value = {ctx.start.getText(), str};    //  TABLENAME , (DROP/TRUNCATE)
+        // ADD VALUE
         this._queryData.QueryTables.add(value);
+        //
         function = false;
-        //System.out.println(ctx.start.getText());
         return this.visitChildren(ctx);
     }
 
     // may get here other than table name like on or order
     @Override
     public Object visitExpr_func(hqlParser.Expr_funcContext ctx) {
-        if(!ctx.start.getText().equals("on")
-                && !ctx.start.getText().equals("order")
-                && !ctx.start.getText().equals("group")
-                && !ctx.start.getText().equals("NVL")
-                && !ctx.start.getText().equals("round")
-        ) {
+        if(joinType_check_3(ctx.start.getText())) {
             String str = "";
             if(drop){
                 str = "drop";
-                drop = false;
+                drop = false;   // IF DROP ... ASSIGN TO STRING AND DISABLE DROP TURN
             }else if (truncate){
                 str = "truncate";
-                truncate = false;
+                truncate = false;   // IF TRUNCATE ... ASSIGN TO STRING AND DISABLE TRUNCATE TURN
             }
-            String[] value = {ctx.start.getText(), str};
+            String[] value = {ctx.start.getText(), str};    //  TABLENAME , (DROP/TRUNCATE)
+            // ADD VALUE
             this._queryData.QueryTables.add(value);
+            //
             function = false;
-        }else if(ctx.start.getText().equals("order")){
+        }else if(ctx.start.getText().equalsIgnoreCase("order")){    // IF THE WORD IS ORDER
             this._queryData.OrderByList = new ArrayList<>();
+            // STOP PROCESSING OF GROUP BY AND PROCESS ORDER
             groupTurn = false;
             orderTurn = true;
-        }else if(ctx.start.getText().equals("group")){
+        }else if(ctx.start.getText().equalsIgnoreCase("group")){    // IF THE WORD IS GROUP
             this._queryData.GroupByList = new ArrayList<>();
+            // STOP PROCESSING OF ORDER BY AND PROCESS GROUP
             groupTurn = true;
             orderTurn = false;
         }
@@ -654,7 +713,6 @@ for(int i=0;i<type.tabl.size();i++) {
 
     @Override
     public Object visitExpr_atom(hqlParser.Expr_atomContext ctx) {
-        //System.out.println(ctx.start.getText());
         if(this._queryData.OrderByList != null && !groupTurn){
             this._queryData.OrderByList.add(ctx.start.getText() + "." + ctx.stop.getText());
         }
@@ -697,18 +755,25 @@ for(int i=0;i<type.tabl.size();i++) {
     //  TO CATCH SELECTED COLUMN
     @Override
     public Object visitSelect_list_item(hqlParser.Select_list_itemContext ctx) {
-        if (!ctx.start.getText().equals("sum") && !ctx.start.getText().equals("max")) {
-            if(ctx.stop.getText().equals(")")){
+
+        if (joinType_check_fun(ctx.start.getText())) {
+
+            if(ctx.stop.getText().equalsIgnoreCase(")")){  //  FUNCTION WITH TWO PARAMETER WITH ALIAS
                 String[] selectedList = new String[3];
+                // FUNCTION NAME
                 selectedList[0] = "fun " + ctx.start.getText();
+                // FIRST PARAMETER
                 selectedList[1] = "param " + ctx.children.get(0).getChild(0).getChild(2).getChild(0).getChild(0).getChild(0).getChild(0).getChild(0).getText()
                     + "." + ctx.children.get(0).getChild(0).getChild(2).getChild(0).getChild(0).getChild(0).getChild(0).getChild(2).getText();
+                // SECONED PARAMETER
                 selectedList[2] = "param " + ctx.children.get(0).getChild(0).getChild(2).getChild(2).getText();
+
                 this._queryData.selectList.add(selectedList);
                 function = true;
-            }else if(ctx.children.size() > 1){
-                if(ctx.children.get(1).getChild(0).getText().equals("as")) {
+            }else if(ctx.children.size() > 1){  //  FUNCTION WITH TWO PARAMETER WITH ALIAS
+                if(ctx.children.get(1).getChild(0).getText().equalsIgnoreCase("as")) {
                     String[] selectedList = new String[5];
+                    // IS DISTINCT ?
                     if (distinct) {
                         selectedList[0] = "distinct";
                         distinct = false;
@@ -716,18 +781,25 @@ for(int i=0;i<type.tabl.size();i++) {
                         selectedList[0] = "none";
                     }
                     String _stop = ctx.stop.getText();
-                    if (ctx.stop.getText().equals("join")) {
+                    //
+                    if (ctx.stop.getText().equalsIgnoreCase("join")) {
                         _stop = ctx.children.get(0).getChild(0).getChild(0).getChild(2).getText();
                     }
+                    // FUNCTION NAME
                     selectedList[1] = "fun " + ctx.start.getText();
+                    // FIRST PARAMETER
                     selectedList[2] = "param " + ctx.children.get(0).getChild(0).getChild(2).getChild(0).getChild(0).getChild(0).getChild(0).getChild(0).getText()
                             + "." + ctx.children.get(0).getChild(0).getChild(2).getChild(0).getChild(0).getChild(0).getChild(0).getChild(2).getText();
+                    // SECONED PARAMETER
                     selectedList[3] = "param " + ctx.children.get(0).getChild(0).getChild(2).getChild(2).getText();
+                    // ALIAS NAME
                     selectedList[4] = "notAs"; //"As " + _stop;
+
                     this._queryData.selectList.add(selectedList);
                 }
-            }else{
+            }else{  //  FUNCTION WITH ONE PARAMETER
                 String[] selectedList = new String[3];
+                // IS DISTINCT ?
                 if (distinct) {
                     selectedList[0] = "distinct";
                     distinct = false;
@@ -735,10 +807,12 @@ for(int i=0;i<type.tabl.size();i++) {
                     selectedList[0] = "none";
                 }
                 String _stop = ctx.stop.getText();
-                if (ctx.stop.getText().equals("join")) {
+                if (ctx.stop.getText().equalsIgnoreCase("join")) {
                     _stop = ctx.children.get(0).getChild(0).getChild(0).getChild(2).getText();
                 }
+                // PARAMETER
                 selectedList[1] = ctx.start.getText() + "." + _stop;
+                // ALIAS NAME
                 selectedList[2] = "notAs";
                 this._queryData.selectList.add(selectedList);
             }
@@ -751,15 +825,22 @@ for(int i=0;i<type.tabl.size();i++) {
     public Object visitExpr_agg_window_func(hqlParser.Expr_agg_window_funcContext ctx) {
         if(ctx.children.size() > 4){
             String[] selectedList = new String[4];
+            //
             selectedList[0] = ctx.children.get(0).getText();
+            //
             selectedList[1] = ctx.children.get(2).getText();
+            //
             selectedList[2] = ctx.children.get(3).getText();
+            // ALIAS NAME
             selectedList[3] = "notAs";
             this._queryData.selectList.add(selectedList);
         }else{
             String[] selectedList = new String[3];
+            //
             selectedList[0] = ctx.children.get(0).getText();
+            //
             selectedList[1] = ctx.children.get(2).getText();
+            // ALIAS NAME
             selectedList[2] = "notAs";
             this._queryData.selectList.add(selectedList);
         }
@@ -798,7 +879,7 @@ for(int i=0;i<type.tabl.size();i++) {
     // TO CATCH THE LINK BETWEEN TEABLE
 
     @Override
-    public Object visitFunc_param(hqlParser.Func_paramContext ctx) {
+    public Object visitFunc_param(hqlParser.Func_paramContext ctx) {    // ADD CONDITIONS ( WHERE, ON, HAVEING)
         if(join && !function && this._queryData.OrderByList == null && this._queryData.GroupByList == null) {
             String[] strings = new String[3];
             int i = 0;
@@ -820,8 +901,7 @@ for(int i=0;i<type.tabl.size();i++) {
     }
 
     @Override
-    public Object visitBool_expr_binary(hqlParser.Bool_expr_binaryContext ctx) {
-        //System.out.println(ctx.children.get(0).getChild(0).getChild(0).getChild(0).getText());
+    public Object visitBool_expr_binary(hqlParser.Bool_expr_binaryContext ctx) {    // ADD CONDITIONS ( WHERE, ON, HAVEING)
         String[] strings = new String[3];
         strings[0] = ctx.children.get(0).getChild(0).getChild(0).getChild(0).getText() + "." + ctx.children.get(0).getChild(0).getChild(0).getChild(2).getText();
         strings[1] = ctx.children.get(1).getText();
@@ -862,7 +942,7 @@ for(int i=0;i<type.tabl.size();i++) {
     }
 
     @Override
-    public Object visitBool_expr_logical_operator(hqlParser.Bool_expr_logical_operatorContext ctx) {
+    public Object visitBool_expr_logical_operator(hqlParser.Bool_expr_logical_operatorContext ctx) {    // ADD CONDITIONS ( WHERE, HAVEING)
 
         String[] strings = new String[3];
         strings[0] = ctx.start.getText();
@@ -875,9 +955,11 @@ for(int i=0;i<type.tabl.size();i++) {
     }
 
     @Override
-    public Object visitBool_expr(hqlParser.Bool_exprContext ctx) {
+    public Object visitBool_expr(hqlParser.Bool_exprContext ctx) {    // ADD CONDITIONS ( WHERE, HAVEING)
+
         if(this._queryData.WhereClauseStatement != null) {
-            if(ctx.start.getText().equals("(") || ctx.start.getText().equals(")")) {
+            // ADD DATA BEFORE THE CHILD
+            if(ctx.start.getText().equalsIgnoreCase("(") || ctx.start.getText().equalsIgnoreCase(")")) {
                 String[] strings = new String[3];
                 strings[0] = ctx.start.getText();
                 if (!having) {
@@ -889,9 +971,9 @@ for(int i=0;i<type.tabl.size();i++) {
 
             Object obj = this.visitChildren(ctx);
 
-
-            if(ctx.stop.getText().equals("(") || ctx.stop.getText().equals(")")) {
-                if(ctx.children.get(2).getText().equals(")")) {
+            // ADD DATA AFTER THE CHILD
+            if(ctx.stop.getText().equalsIgnoreCase("(") || ctx.stop.getText().equalsIgnoreCase(")")) {
+                if(ctx.children.get(2).getText().equalsIgnoreCase(")")) {
                     String[] strings = new String[3];
                     strings[0] = ctx.stop.getText();
                     if (!having) {
@@ -928,6 +1010,7 @@ for(int i=0;i<type.tabl.size();i++) {
     @Override
     public Object visitGroup_by_clause(hqlParser.Group_by_clauseContext ctx) {
         this._queryData.GroupByList = new ArrayList<>();
+        // STOP PROCESSING OF ORDER BY AND PROCESS GROUP AND HAVING
         groupTurn = true;
         orderTurn = false;
         having = false;
@@ -951,6 +1034,7 @@ for(int i=0;i<type.tabl.size();i++) {
     @Override
     public Object visitOrder_by_clause(hqlParser.Order_by_clauseContext ctx) {
         this._queryData.OrderByList = new ArrayList<>();
+        // STOP PROCESSING OF GROUP BY AND PROCESS ORDER AND HAVING
         groupTurn = false;
         orderTurn = true;
         having = false;
