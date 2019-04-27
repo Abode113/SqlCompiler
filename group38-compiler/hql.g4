@@ -940,7 +940,7 @@ func_p:
 dtype ident T_COMMA?
 ;
 create_new_table:
-T_CREATE T_TABLE table_name T_OPEN_P (column T_COMMA?)* T_CLOSE_P
+T_CREATE T_TABLE table_name T_OPEN_P (column T_COMMA?)* T_CLOSE_P T_FileType delemeter location
 ;
 p:
     dtype  ident
@@ -1719,6 +1719,18 @@ from_alias_clause :
      
 
 table_name ://111111111111111
+
+       ident
+
+     ;
+
+delemeter ://111111111111111
+
+       ident
+
+     ;
+
+location ://111111111111111
 
        ident
 
@@ -3866,6 +3878,7 @@ T_SEMICOLON    : ';' ;
 
 T_SUB          : '-' ;//1111111111111111
 
+T_FileType     : 'stored_as_textfile';
 
 
 L_ID        : L_ID_PART              //1111111111111                                  // Identifier

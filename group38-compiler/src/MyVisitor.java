@@ -1,7 +1,3 @@
-import javafx.util.Pair;
-
-import java.sql.Types;
-import java.time.Clock;
 import java.util.ArrayList;
 import java.io.*;
 import java.util.List;
@@ -10,6 +6,7 @@ public class MyVisitor extends hqlBaseVisitor<Object> {
     ArrayList<D_Type> types = new ArrayList<>();
     D_Type Type = new D_Type();
     queryData _queryData = new queryData();
+    table tab;
 
     boolean orderTurn = false;
     boolean groupTurn = false;
@@ -145,6 +142,8 @@ for(int i=0;i<type.tabl.size();i++) {
         this._queryData.selectList = new ArrayList<>();
         this._queryData.OnStatement = new ArrayList<>();
 
+        tab =new table();
+
         return visitChildren(ctx);
     }
 
@@ -205,7 +204,7 @@ for(int i=0;i<type.tabl.size();i++) {
 
     @Override public Object visitCreate_new_table(hqlParser.Create_new_tableContext ctx) {
         System.out.println("Create_new_table");
-        table tab =new table();
+        //table tab =new table();
         tab.tablename=ctx.table_name().ident().getText();
 
 
@@ -218,12 +217,27 @@ for(int i=0;i<type.tabl.size();i++) {
 
 
         }
-        Type.istable=true;
-        Type.tabl.add(tab);
+//        Type.istable=true;
+//        Type.tabl.add(tab);
+
+
+
+        return visitChildren(ctx); }
+
+    @Override
+    public Object visitDelemeter(hqlParser.DelemeterContext ctx) {
+        tab.delemeter = ctx.start.getText();
+        return visitChildren(ctx);
+    }
+
+    @Override
+    public Object visitLocation(hqlParser.LocationContext ctx) {
+        tab.location = ctx.start.getText();
 
         try {
             tableList _tableList = new tableList();
             //_tableList.createOrOverwirteTableListToFile(tab);
+            _tableList.createOrOverwirteTableListToFile(tab);
             _tableList.readTableListFromFile();
         } catch (IOException e) {
             e.printStackTrace();
@@ -231,10 +245,10 @@ for(int i=0;i<type.tabl.size();i++) {
             e.printStackTrace();
         }
 
-        return visitChildren(ctx); }
+        return visitChildren(ctx);
+    }
 
-
-  /*  @Override public Object visitClass_block(hqlParser.Class_blockContext ctx) {
+    /*  @Override public Object visitClass_block(hqlParser.Class_blockContext ctx) {
 
         D_Type Type = new D_Type();
         Type.Name = ctx.x().ident().getText();

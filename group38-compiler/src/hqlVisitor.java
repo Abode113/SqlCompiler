@@ -1090,6 +1090,18 @@ public interface hqlVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTable_name(hqlParser.Table_nameContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link hqlParser#delemeter}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDelemeter(hqlParser.DelemeterContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link hqlParser#location}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLocation(hqlParser.LocationContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link hqlParser#where_clause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

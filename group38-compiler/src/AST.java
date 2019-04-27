@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
-import java.util.Objects;
+import java.util.List;
 
 public class AST {
 
@@ -36,8 +36,15 @@ public class AST {
         System.out.println(visitor._queryData.OrderByList);
         System.out.println(visitor._queryData.GroupByList);
         System.out.println(visitor._queryData.HavingClauseStatement);
-        System.out.println("hey");
 
+        //tableList tabObj = new tableList();
+        //List<List<String>> DataOfFile = tabObj.readDataFromCsvFile("prices");
+
+        Controller controller = new Controller(visitor._queryData);
+
+        controller.process();
+
+        System.out.println("hey");
 
     }
 

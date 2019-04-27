@@ -1276,6 +1276,20 @@ public class hqlBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements hq
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitDelemeter(hqlParser.DelemeterContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitLocation(hqlParser.LocationContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitWhere_clause(hqlParser.Where_clauseContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}

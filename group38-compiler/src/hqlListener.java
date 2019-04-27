@@ -1807,6 +1807,26 @@ public interface hqlListener extends ParseTreeListener {
 	 */
 	void exitTable_name(hqlParser.Table_nameContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link hqlParser#delemeter}.
+	 * @param ctx the parse tree
+	 */
+	void enterDelemeter(hqlParser.DelemeterContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link hqlParser#delemeter}.
+	 * @param ctx the parse tree
+	 */
+	void exitDelemeter(hqlParser.DelemeterContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link hqlParser#location}.
+	 * @param ctx the parse tree
+	 */
+	void enterLocation(hqlParser.LocationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link hqlParser#location}.
+	 * @param ctx the parse tree
+	 */
+	void exitLocation(hqlParser.LocationContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link hqlParser#where_clause}.
 	 * @param ctx the parse tree
 	 */

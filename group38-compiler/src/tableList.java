@@ -1,5 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class tableList implements Serializable{
     ArrayList<table> tableList = new ArrayList<>();
@@ -46,5 +48,43 @@ public class tableList implements Serializable{
             objectIn.close();
 
             return this.tableList;
+    }
+
+    public List<List<String>> readDataFromCsvFile(String TableName){
+
+        List<List<String>> records = new ArrayList<>();
+
+        try {
+            String Location = "";
+            String delemeter = "";
+            ArrayList<table> tableListObj = this.readTableListFromFile();
+            for(int i = 0; i < tableListObj.size(); i++){
+                if(tableListObj.get(i).tablename.equalsIgnoreCase(TableName)){
+                    Location = getString(tableListObj.get(i).location) + tableListObj.get(i).tablename + ".csv";
+                    delemeter = getString(tableListObj.get(i).delemeter);
+                    break;
+                }
+            }
+
+            String line;
+            Location = Location.substring(1);
+            BufferedReader br = new BufferedReader(new FileReader(Location));
+//            BufferedReader br = new BufferedReader(new FileReader("prices.csv"));
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(delemeter);
+                records.add(Arrays.asList(values));
+            }
+
+            System.out.println(tableListObj);
+        }catch(Exception e){
+            List<List<String>> Records = new ArrayList<>();
+        }
+        return records;
+    }
+
+    public String getString (String Word){
+        Word = Word.substring(1);
+        Word = Word.substring(0, Word.length() - 1);
+        return Word;
     }
 }

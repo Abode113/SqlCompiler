@@ -284,9 +284,13 @@ order by (quantities.productsss) ASC
 
 
 
+delemeter
+location
 
 
-
+T_FileType
+T_Delemeter
+T_Location
 
 
 
