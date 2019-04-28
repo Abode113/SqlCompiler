@@ -37,11 +37,9 @@ public class AST {
         System.out.println(visitor._queryData.GroupByList);
         System.out.println(visitor._queryData.HavingClauseStatement);
 
-        //tableList tabObj = new tableList();
-        //List<List<String>> DataOfFile = tabObj.readDataFromCsvFile("prices");
+
 
         Controller controller = new Controller(visitor._queryData);
-
         controller.process();
 
         System.out.println("hey");

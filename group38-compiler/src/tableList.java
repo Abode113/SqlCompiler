@@ -61,7 +61,16 @@ public class tableList implements Serializable{
             for(int i = 0; i < tableListObj.size(); i++){
                 if(tableListObj.get(i).tablename.equalsIgnoreCase(TableName)){
                     Location = getString(tableListObj.get(i).location) + tableListObj.get(i).tablename + ".csv";
-                    delemeter = getString(tableListObj.get(i).delemeter);
+                    delemeter = "\\" + getString(tableListObj.get(i).delemeter);
+                    String type = "";
+                    for (int j = 0; j < tableListObj.get(i).col.size(); j++){
+                        type += tableListObj.get(i).col.get(j).column_name + getString(tableListObj.get(i).delemeter);
+                    }
+                    String[] types = type.split(delemeter);
+                    for(int j = 0; j < types.length; j++){
+                        types[j] = types[j].replaceAll("\\s+","");
+                    }
+                    records.add(Arrays.asList(types));
                     break;
                 }
             }
@@ -72,6 +81,9 @@ public class tableList implements Serializable{
 //            BufferedReader br = new BufferedReader(new FileReader("prices.csv"));
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(delemeter);
+                for(int j = 0; j < values.length; j++){
+                    values[j] = values[j].replaceAll("\\s+","");
+                }
                 records.add(Arrays.asList(values));
             }
 

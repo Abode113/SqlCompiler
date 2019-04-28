@@ -284,6 +284,23 @@ order by (quantities.productsss) ASC
 
 
 
+
+
+
+select prices.product, prices.prices, sum(quantities.quantity) from prices
+inner join quantities on prices.product = quantities.product
+where quantities.quantity > 10
+group by prices.product, prices.price having ( prices.price > 1 )
+order by ( prices.price ) ASC
+
+
+create table prices (product string, prices int) stored_as_textfile "," "/"
+
+create table quantities (product string, quantity int) stored_as_textfile "|" "/"
+
+create table other (item string, prices int) stored_as_textfile "," "/"
+
+
 delemeter
 location
 
@@ -291,6 +308,32 @@ location
 T_FileType
 T_Delemeter
 T_Location
+
+
+
+
+
+
+
+
+
+select prices.product, prices.price, sum(quantities.quantity) from prices
+inner join quantities on prices.product = quantities.product
+where quantities.quantity > 10
+group by prices.product, prices.price having ( prices.price > 1 )
+order by ( prices.price ) ASC
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
