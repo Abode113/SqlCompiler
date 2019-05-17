@@ -7,6 +7,54 @@ public class tableList implements Serializable{
     ArrayList<table> tableList = new ArrayList<>();
     public static String filePath = "table_type.txt";
 
+    public void createTableOutputData(String FileName, List<List<String>> Data){
+
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter(FileName, "UTF-8");
+
+            for(int i = 0; i < Data.size(); i++){
+                String str = "";
+                for(int j = 0; j < Data.get(i).size(); j++){
+                    str += Data.get(i).get(j) + ", ";
+                }
+                writer.println(str);
+            }
+            writer.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void createTableOutputGroupedData(String FileName, List<List<List<String>>> Data){
+
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter(FileName, "UTF-8");
+
+            for(int i = 0; i < Data.size(); i++){
+                String str = "";
+                for(int j = 0; j < Data.get(i).size(); j++){
+                    for(int k = 0; k < Data.get(i).get(j).size(); k++){
+                        str += Data.get(i).get(j).get(k) + ", ";
+                    }
+                    writer.println(str);
+                }
+                writer.println("");
+            }
+            writer.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        System.out.println("hey");
+    }
+
     public void createOrOverwirteTableListToFile(table newTable) throws IOException, ClassNotFoundException {
 
         this.tableList.add(newTable);
@@ -60,7 +108,7 @@ public class tableList implements Serializable{
             ArrayList<table> tableListObj = this.readTableListFromFile();
             for(int i = 0; i < tableListObj.size(); i++){
                 if(tableListObj.get(i).tablename.equalsIgnoreCase(TableName)){
-                    Location = getString(tableListObj.get(i).location) + tableListObj.get(i).tablename + ".csv";
+                    Location = getString(tableListObj.get(i).location) + tableListObj.get(i).tablename + "/";
                     delemeter = "\\" + getString(tableListObj.get(i).delemeter);
                     String type = "";
                     for (int j = 0; j < tableListObj.get(i).col.size(); j++){
@@ -77,14 +125,39 @@ public class tableList implements Serializable{
 
             String line;
             Location = Location.substring(1);
-            BufferedReader br = new BufferedReader(new FileReader(Location));
+
+            File folder = new File(Location);
+            File[] listOfFiles = folder.listFiles();
+
+            BufferedReader firstFile = new BufferedReader(new FileReader(Location + "head.csv"));
+            String FirstLine = firstFile.readLine();
+            String[] Firstvalues = FirstLine.split(delemeter);
+            for(int s = 0; s < Firstvalues.length; s++){
+                Firstvalues[s] = Firstvalues[s].replaceAll("\\s+", "");
+                Firstvalues[s] = TableName + "." + Firstvalues[s];
+            }
+            records.add(Arrays.asList(Firstvalues));
+
+            Location = Location.replace('/','\\');
+            for(int k = 0; k < listOfFiles.length; k++) {
+                if(!listOfFiles[k].toString().equalsIgnoreCase(Location + "head.csv")) {
+                    BufferedReader br = new BufferedReader(new FileReader(listOfFiles[k]));
 //            BufferedReader br = new BufferedReader(new FileReader("prices.csv"));
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(delemeter);
-                for(int j = 0; j < values.length; j++){
-                    values[j] = values[j].replaceAll("\\s+","");
+//                    boolean first = true;
+                    while ((line = br.readLine()) != null) {
+                        String[] values = line.split(delemeter);
+                        for (int j = 0; j < values.length; j++) {
+                            values[j] = values[j].replaceAll("\\s+", "");
+//                            if (first) {
+//                                first = false;
+//                                for (int t = 0; t < values.length; t++) {
+//                                    values[t] = TableName + "." + values[t];
+//                                }
+//                            }
+                        }
+                        records.add(Arrays.asList(values));
+                    }
                 }
-                records.add(Arrays.asList(values));
             }
 
             System.out.println(tableListObj);

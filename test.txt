@@ -1,4 +1,6 @@
-select prices.product, prices.prices, sum(quantities.quantity) from prices
+select distinct sum(quantities.quantity) as summ, prices.product, max(prices.prices) as maxxx from prices
 inner join quantities on prices.product = quantities.product
 inner join other on other.prices = prices.prices
-where quantities.quantity > 10
+where quantities.quantity > 10 or ( prices.prices > 1 and quantities.quantity > prices.prices )
+group by prices.product having ( prices.prices > 1 )
+order by (quantities.quantity, prices.prices) DESC

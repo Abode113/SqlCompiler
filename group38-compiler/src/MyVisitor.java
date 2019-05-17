@@ -923,7 +923,11 @@ for(int i=0;i<type.tabl.size();i++) {
             strings[2] = ctx.children.get(2).getChild(0).getChild(0).getChild(0).getText() + "." + ctx.children.get(2).getChild(0).getChild(0).getChild(2).getText();
             this._queryData.OnStatement.add(strings);
         }else{
-            strings[2] = ctx.children.get(2).getChild(0).getChild(0).getChild(0).getText();
+            if(ctx.children.get(2).getChild(0).getChild(0).getChild(2) != null){
+                strings[2] = ctx.children.get(2).getChild(0).getChild(0).getChild(0).getText() + "." + ctx.children.get(2).getChild(0).getChild(0).getChild(2).getText();
+            }else{
+                strings[2] = ctx.children.get(2).getChild(0).getChild(0).getChild(0).getText();
+            }
             if (!having) {
                 this._queryData.WhereClauseStatement.add(strings);
             }else{
