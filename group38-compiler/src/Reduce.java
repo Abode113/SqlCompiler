@@ -33,31 +33,31 @@ public class Reduce {
             }
         }
 
-        boolean complete = true;
-        if (!Functions.get(1).contains(".")) {
-            complete = false;
-        }
+        if(Functions.size() > 0) {
+            boolean complete = true;
+            if (!Functions.get(1).contains(".")) {
+                complete = false;
+            }
 
-        if (!complete) {
-            if (Functions.get(1).contains(".")) {
-                Functions.set(1, Functions.get(1).split("\\.")[1]);
+            if (!complete) {
+                if (Functions.get(1).contains(".")) {
+                    Functions.set(1, Functions.get(1).split("\\.")[1]);
+                }
+            }
+
+            int index = -1;
+            for (int i = 0; i < sortList.get(1).size(); i++) {
+                if (sortList.get(1).get(i).equalsIgnoreCase(Functions.get(1))) {
+                    index = i;
+                }
+            }
+
+            for (int i = 2; i < sortList.size(); i++) {
+                if (sortList.get(i).get(index).equalsIgnoreCase("null")) {
+                    sortList.get(i).set(index, Functions.get(2));
+                }
             }
         }
-
-        int index = -1;
-        for(int i = 0; i < sortList.get(1).size(); i++){
-            if(sortList.get(1).get(i).equalsIgnoreCase(Functions.get(1))){
-                index = i;
-            }
-        }
-
-        for(int i = 2; i < sortList.size(); i++){
-            if(sortList.get(i).get(index).equalsIgnoreCase("null")){
-                sortList.get(i).set(index, Functions.get(2));
-            }
-        }
-
-
         return sortList;
     }
 
@@ -257,55 +257,58 @@ public class Reduce {
     }
 
     public List<List<String>> functionsProcess(){
-        List<List<String>> AllList = new ArrayList<>();
-        AllList.add(this.ShuffleResult.get(0).get(0));
-        AllList.add(this.ShuffleResult.get(0).get(1));
+        if(this.ShuffleResult.get(0) != null) {
+            List<List<String>> AllList = new ArrayList<>();
+            AllList.add(this.ShuffleResult.get(0).get(0));
+            AllList.add(this.ShuffleResult.get(0).get(1));
 
-        List<String[]> ColIndex = new ArrayList<>();
-        for (int i = 0; i < DataObject.selectList.size(); i++) {
-            String[] Index_Name = new String[2];
-            Index_Name[0] = String.valueOf(i);
-            Index_Name[1] = DataObject.selectList.get(i)[0];
-            if(Index_Name[1].equalsIgnoreCase("sum") || Index_Name[1].equalsIgnoreCase("max")) {
-                ColIndex.add(Index_Name);
+            List<String[]> ColIndex = new ArrayList<>();
+            for (int i = 0; i < DataObject.selectList.size(); i++) {
+                String[] Index_Name = new String[2];
+                Index_Name[0] = String.valueOf(i);
+                Index_Name[1] = DataObject.selectList.get(i)[0];
+                if (Index_Name[1].equalsIgnoreCase("sum") || Index_Name[1].equalsIgnoreCase("max")) {
+                    ColIndex.add(Index_Name);
+                }
             }
-        }
-        if(this.ShuffleResult.size() == 1 && ColIndex.size() == 0){
-            return this.ShuffleResult.get(0);
-        }
-        for (int j = 1; j < this.ShuffleResult.size(); j++) {
+            if (this.ShuffleResult.size() == 1 && ColIndex.size() == 0) {
+                return this.ShuffleResult.get(0);
+            }
+            for (int j = 1; j < this.ShuffleResult.size(); j++) {
 
-            List<String> NewRow = new ArrayList<>();
-            for (int k = 0; k < this.ShuffleResult.get(j).get(0).size(); k++) {
-                boolean ok = true;
-                for(int o = 0; o < ColIndex.size(); o++){
-                    if (k == Integer.parseInt(ColIndex.get(o)[0])) {
-                        ok = false;
+                List<String> NewRow = new ArrayList<>();
+                for (int k = 0; k < this.ShuffleResult.get(j).get(0).size(); k++) {
+                    boolean ok = true;
+                    for (int o = 0; o < ColIndex.size(); o++) {
+                        if (k == Integer.parseInt(ColIndex.get(o)[0])) {
+                            ok = false;
+                        }
+                    }
+                    if (ok) {
+                        NewRow.add(this.ShuffleResult.get(j).get(0).get(k));
+                    } else {
+                        NewRow.add("");
                     }
                 }
-                if(ok) {
-                    NewRow.add(this.ShuffleResult.get(j).get(0).get(k));
-                }else{
-                    NewRow.add("");
+
+                List<String> FunctionValue = new ArrayList<>();
+                List<String> ValueGrouped = new ArrayList<>();
+                for (int o = 0; o < ColIndex.size(); o++) {
+                    for (int k = 0; k < this.ShuffleResult.get(j).size(); k++) {
+                        ValueGrouped.add(this.ShuffleResult.get(j).get(k).get(Integer.parseInt(ColIndex.get(o)[0])));
+                    }
+                    FunctionValue.add(getFunctionValue(ValueGrouped, ColIndex.get(o)[1]));
                 }
-            }
 
-            List<String> FunctionValue = new ArrayList<>();
-            List<String> ValueGrouped = new ArrayList<>();
-            for(int o = 0; o < ColIndex.size(); o++) {
-                for (int k = 0; k < this.ShuffleResult.get(j).size(); k++) {
-                    ValueGrouped.add(this.ShuffleResult.get(j).get(k).get(Integer.parseInt(ColIndex.get(o)[0])));
+                for (int u = 0; u < FunctionValue.size(); u++) {
+                    NewRow.set(Integer.parseInt(ColIndex.get(u)[0]), FunctionValue.get(u));
                 }
-                FunctionValue.add(getFunctionValue(ValueGrouped, ColIndex.get(o)[1]));
-            }
 
-            for (int u = 0; u < FunctionValue.size(); u++){
-                NewRow.set(Integer.parseInt(ColIndex.get(u)[0]), FunctionValue.get(u));
+                AllList.add(NewRow);
             }
-
-            AllList.add(NewRow);
+            return AllList;
         }
-        return AllList;
+        return null;
     }
     public String getFunctionValue(List<String> ValueGrouped, String function){
         if(function.equalsIgnoreCase("sum")){

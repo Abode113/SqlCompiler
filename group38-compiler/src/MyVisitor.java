@@ -15,12 +15,16 @@ public class MyVisitor extends hqlBaseVisitor<Object> {
     // MEAN THAT WE ARE PROCEESSING DROP STATEMENT
     boolean drop = false;
 
+    // MEAN THAT WE ARE PROCEESSING delete STATEMENT
+    boolean delete = false;
+
     // MEAN THAT WE ARE PROCEESSING TRUNCATE STATEMENT
     boolean truncate = false;
 
     boolean function = false;
     boolean having = false;
     boolean join = false;
+
 
     void print(D_Type type2) {
         System.out.println("print");
@@ -437,6 +441,8 @@ for(int i=0;i<type.tabl.size();i++) {
         }else if (truncate){
             str = "truncate";
             truncate = false;   // IF TRUNCATE ... ASSIGN TO STRING AND DISABLE TRUNCATE TURN
+        }else if(delete){
+            str = "delete";
         }
         String[] value = {ctx.start.getText(), str};    //  TABLENAME , (DROP/TRUNCATE)
         // ADD VALUE
@@ -461,6 +467,8 @@ for(int i=0;i<type.tabl.size();i++) {
             }else if (truncate){
                 str = "truncate";
                 truncate = false;   // IF TRUNCATE ... ASSIGN TO STRING AND DISABLE TRUNCATE TURN
+            }else if(delete){
+                str = "delete";
             }
             String[] value = {ctx.start.getText(), str};    //  TABLENAME , (DROP/TRUNCATE)
             // ADD VALUE
@@ -672,6 +680,8 @@ for(int i=0;i<type.tabl.size();i++) {
         }else if (truncate){
             str = "truncate";
             truncate = false;   // IF TRUNCATE ... ASSIGN TO STRING AND DISABLE TRUNCATE TURN
+        }else if(delete){
+            str = "delete";
         }
         String[] value = {ctx.start.getText(), str};    //  TABLENAME , (DROP/TRUNCATE)
         // ADD VALUE
@@ -692,6 +702,8 @@ for(int i=0;i<type.tabl.size();i++) {
             }else if (truncate){
                 str = "truncate";
                 truncate = false;   // IF TRUNCATE ... ASSIGN TO STRING AND DISABLE TRUNCATE TURN
+            }else if(delete){
+                str = "delete";
             }
             String[] value = {ctx.start.getText(), str};    //  TABLENAME , (DROP/TRUNCATE)
             // ADD VALUE
@@ -1097,13 +1109,11 @@ for(int i=0;i<type.tabl.size();i++) {
     //----------------------------------------------------------------------------------------------------------
     //----------------------------------------------------------------------------------------------------------
 
-
-
-
-
-
-
-
+    @Override
+    public Object visitDelete_stmt(hqlParser.Delete_stmtContext ctx) {
+        delete = true;
+        return this.visitChildren(ctx);
+    }
 
 
     //----------------------------------------------------------------------------------------------------------

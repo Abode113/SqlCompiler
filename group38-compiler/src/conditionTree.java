@@ -10,31 +10,34 @@ public class conditionTree {
     }
 
     public TreeNode build(List<String[]> Conditions){
-        TreeNode Tree = new TreeNode();
-        TreeNode Temp = new TreeNode();
-        Tree = Temp;
-        for (int i = 0; i < Conditions.size(); i++){
-            if(Conditions.get(i)[0].equalsIgnoreCase("(")){
-                //Tree = AddTempToNormal(Tree, Temp);
-                Temp.right = new TreeNode();
-                Temp = Temp.right;
-            }
+        if(Conditions != null) {
+            TreeNode Tree = new TreeNode();
+            TreeNode Temp = new TreeNode();
+            Tree = Temp;
+            for (int i = 0; i < Conditions.size(); i++) {
+                if (Conditions.get(i)[0].equalsIgnoreCase("(")) {
+                    //Tree = AddTempToNormal(Tree, Temp);
+                    Temp.right = new TreeNode();
+                    Temp = Temp.right;
+                }
             /*
             if(Conditions.get(i)[0].equalsIgnoreCase(")")){
                 Tree = AddTempToNormal(Tree, Temp);
             }
             */
-            if(!Conditions.get(i)[0].equalsIgnoreCase("or")
-                    && !Conditions.get(i)[0].equalsIgnoreCase("and")
-                    && !Conditions.get(i)[0].equalsIgnoreCase("(")) {
-                AddNode(Conditions.get(i), Temp);
+                if (!Conditions.get(i)[0].equalsIgnoreCase("or")
+                        && !Conditions.get(i)[0].equalsIgnoreCase("and")
+                        && !Conditions.get(i)[0].equalsIgnoreCase("(")) {
+                    AddNode(Conditions.get(i), Temp);
+                }
+                if (Conditions.get(i)[0].equalsIgnoreCase("or")
+                        || Conditions.get(i)[0].equalsIgnoreCase("and")) {
+                    AddNode(Conditions.get(i), Temp);
+                }
             }
-            if(Conditions.get(i)[0].equalsIgnoreCase("or")
-                    ||Conditions.get(i)[0].equalsIgnoreCase("and")){
-                AddNode(Conditions.get(i), Temp);
-            }
+            return Tree;
         }
-        return Tree;
+        return null;
     }
 
     public void AddNode (String[] Conditions, TreeNode Tree){

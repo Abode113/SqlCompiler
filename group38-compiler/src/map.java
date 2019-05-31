@@ -27,93 +27,99 @@ public class map {
 
     public List<List<String>> justSelect(List<List<String>> justSelect){
 
-        List<String> SelectList = new ArrayList<>();
-        for (int i = 0; i < this.DataObject.selectList.size(); i++){
-            if(this.DataObject.selectList.get(i)[1].contains("param")){
-                SelectList.add(this.DataObject.selectList.get(i)[1].split(" ")[1]);
-            }else {
-                SelectList.add(this.DataObject.selectList.get(i)[1]);
-            }
-        }
-
-        boolean complete = true;
-        for (int i = 0; i < SelectList.size(); i++){
-            if(!SelectList.get(i).contains(".")){
-                complete = false;
-                break;
-            }
-        }
-
-        if(!complete){
-            for (int i = 0; i < SelectList.size(); i++) {
-                if (SelectList.get(i).contains(".")) {
-                    SelectList.set(i, SelectList.get(i).split("\\.")[1]);
+        if(justSelect != null) {
+            List<String> SelectList = new ArrayList<>();
+            for (int i = 0; i < this.DataObject.selectList.size(); i++) {
+                if (this.DataObject.selectList.get(i)[1].contains("param")) {
+                    SelectList.add(this.DataObject.selectList.get(i)[1].split(" ")[1]);
+                } else {
+                    SelectList.add(this.DataObject.selectList.get(i)[1]);
                 }
             }
-        }
 
-        List<Integer> indexList = new ArrayList<>();
-        for (int i = 0; i < SelectList.size(); i++){
-            for (int j = 0; j < justSelect.get(1).size(); j++) {
-                if (justSelect.get(1).get(j).equalsIgnoreCase(SelectList.get(i))){
-                    indexList.add(j);
+            boolean complete = true;
+            for (int i = 0; i < SelectList.size(); i++) {
+                if (!SelectList.get(i).contains(".")) {
+                    complete = false;
                     break;
                 }
             }
-        }
 
-        List<List<String>> Data = new ArrayList<>();
-        for (int i = 0; i < justSelect.size(); i++){
-            List<String> Obj = new ArrayList<>();
-            for(int j = 0; j < indexList.size(); j++){
-                Obj.add(justSelect.get(i).get(indexList.get(j)));
+            if (!complete) {
+                for (int i = 0; i < SelectList.size(); i++) {
+                    if (SelectList.get(i).contains(".")) {
+                        SelectList.set(i, SelectList.get(i).split("\\.")[1]);
+                    }
+                }
             }
-            Data.add(Obj);
+
+            List<Integer> indexList = new ArrayList<>();
+            for (int i = 0; i < SelectList.size(); i++) {
+                for (int j = 0; j < justSelect.get(1).size(); j++) {
+                    if (justSelect.get(1).get(j).equalsIgnoreCase(SelectList.get(i))) {
+                        indexList.add(j);
+                        break;
+                    }
+                }
+            }
+
+            List<List<String>> Data = new ArrayList<>();
+            for (int i = 0; i < justSelect.size(); i++) {
+                List<String> Obj = new ArrayList<>();
+                for (int j = 0; j < indexList.size(); j++) {
+                    Obj.add(justSelect.get(i).get(indexList.get(j)));
+                }
+                Data.add(Obj);
+            }
+            return Data;
         }
-        return Data;
+        return null;
     }
 
     public List<List<String>> Distinct(List<List<String>> TablesAfterWhereCondition){
 
-        boolean Distinct = false;
-        for (int i = 0; i < this.DataObject.selectList.size(); i++){
-            if(this.DataObject.selectList.get(i)[0].equalsIgnoreCase("distinct")){
-                Distinct = true;
-                break;
+        if(TablesAfterWhereCondition != null) {
+            boolean Distinct = false;
+            for (int i = 0; i < this.DataObject.selectList.size(); i++) {
+                if (this.DataObject.selectList.get(i)[0].equalsIgnoreCase("distinct")) {
+                    Distinct = true;
+                    break;
+                }
             }
-        }
-        if(Distinct){
+            if (Distinct) {
 
-            List<Integer> similarIndex = new ArrayList<>();
+                List<Integer> similarIndex = new ArrayList<>();
 
-            for(int i = 2; i < TablesAfterWhereCondition.size(); i++){
-                if(!similarIndex.contains(i)) {
-                    for (int j = i + 1; j < TablesAfterWhereCondition.size(); j++) {
-                        if(!similarIndex.contains(j)) {
-                            int index = j;
-                            for (int k = 0; k < TablesAfterWhereCondition.get(i).size(); k++) {
-                                if (!TablesAfterWhereCondition.get(i).get(k).equalsIgnoreCase(TablesAfterWhereCondition.get(j).get(k))) {
-                                    index = -1;
+                for (int i = 2; i < TablesAfterWhereCondition.size(); i++) {
+                    if (!similarIndex.contains(i)) {
+                        for (int j = i + 1; j < TablesAfterWhereCondition.size(); j++) {
+                            if (!similarIndex.contains(j)) {
+                                int index = j;
+                                for (int k = 0; k < TablesAfterWhereCondition.get(i).size(); k++) {
+                                    if (!TablesAfterWhereCondition.get(i).get(k).equalsIgnoreCase(TablesAfterWhereCondition.get(j).get(k))) {
+                                        index = -1;
+                                    }
                                 }
-                            }
-                            if (index != -1) {
-                                similarIndex.add(index);
+                                if (index != -1) {
+                                    similarIndex.add(index);
+                                }
                             }
                         }
                     }
                 }
-            }
-            List<List<String>> Data = new ArrayList<>();
-            for(int i = 0; i < TablesAfterWhereCondition.size(); i++){
-                if(!similarIndex.contains(i)){
-                    Data.add(TablesAfterWhereCondition.get(i));
+                List<List<String>> Data = new ArrayList<>();
+                for (int i = 0; i < TablesAfterWhereCondition.size(); i++) {
+                    if (!similarIndex.contains(i)) {
+                        Data.add(TablesAfterWhereCondition.get(i));
+                    }
                 }
-            }
 
-            return Data;
-        }else{
-            return TablesAfterWhereCondition;
+                return Data;
+            } else {
+                return TablesAfterWhereCondition;
+            }
         }
+        return null;
     }
 
     public List<List<String>> where(List<List<String>> JoinedTable){
@@ -126,16 +132,19 @@ public class map {
 
     public List<List<String>> ApplyWhereOnTables(List<List<String>> JoinedTable, TreeNode ConditionTree){
 
-        List<List<String>> Result = new ArrayList<>();
-        Result.add(JoinedTable.get(0));
-        Result.add(JoinedTable.get(1));
-        for (int i = 2; i < JoinedTable.size(); i++){
-            List<String> Res = WhereCondition(JoinedTable.get(0), JoinedTable.get(1), JoinedTable.get(i), ConditionTree);
-            if(Res != null){
-                Result.add(Res);
+        if(ConditionTree != null) {
+            List<List<String>> Result = new ArrayList<>();
+            Result.add(JoinedTable.get(0));
+            Result.add(JoinedTable.get(1));
+            for (int i = 2; i < JoinedTable.size(); i++) {
+                List<String> Res = WhereCondition(JoinedTable.get(0), JoinedTable.get(1), JoinedTable.get(i), ConditionTree);
+                if (Res != null) {
+                    Result.add(Res);
+                }
             }
+            return Result;
         }
-        return Result;
+        return null;
     }
 
     public List<String> WhereCondition(List<String> rowType, List<String> rowColName, List<String> RowValue, TreeNode ConditionTree){

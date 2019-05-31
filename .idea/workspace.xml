@@ -1,289 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4116b06b-a1b0-44d0-af3a-0a86d3fc47a4" name="Default Changelist" comment="1 - full implementing on mapper :&#10;    1 -">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group38-compiler/src/Reduce.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group38-compiler/src/TreeNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group38-compiler/src/conditionTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group38-compiler/src/shuffle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/other/1.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/other/2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/other/3.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/other/4.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/other/head.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prices/1.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prices/2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prices/3.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prices/head.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quantities/1.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quantities/2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quantities/3.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quantities/head.csv" afterDir="false" />
+    <list default="true" id="4116b06b-a1b0-44d0-af3a-0a86d3fc47a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestedSamples.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TestedSamples.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group38-compiler/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/group38-compiler/src/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group38-compiler/src/MyVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/group38-compiler/src/MyVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group38-compiler/src/Reduce.java" beforeDir="false" afterPath="$PROJECT_DIR$/group38-compiler/src/Reduce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group38-compiler/src/conditionTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/group38-compiler/src/conditionTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group38-compiler/src/map.java" beforeDir="false" afterPath="$PROJECT_DIR$/group38-compiler/src/map.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group38-compiler/src/tableList.java" beforeDir="false" afterPath="$PROJECT_DIR$/group38-compiler/src/tableList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hql.interp" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hql.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hql.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hql.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlBaseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlBaseListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlBaseVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlBaseVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlLexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlLexer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlLexer.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlLexer.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Allocate_cursor_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Allocate_cursor_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Alter_table_add_constraintContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Alter_table_add_constraintContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Alter_table_add_constraint_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Alter_table_add_constraint_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Alter_table_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Alter_table_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Alter_table_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Alter_table_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$ArchContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$ArchContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Assignment_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Assignment_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Assignment_stmt_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Assignment_stmt_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Assignment_stmt_multiple_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Assignment_stmt_multiple_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Assignment_stmt_select_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Assignment_stmt_select_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Assignment_stmt_single_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Assignment_stmt_single_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Associate_locator_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Associate_locator_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Begin_end_blockContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Begin_end_blockContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Begin_transaction_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Begin_transaction_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$BlockContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$BlockContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Block_endContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Block_endContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_exprContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_exprContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_expr_atomContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_expr_atomContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_expr_binaryContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_expr_binaryContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_expr_binary_operatorContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_expr_binary_operatorContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_expr_logical_operatorContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_expr_logical_operatorContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_expr_multi_inContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_expr_multi_inContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_expr_single_inContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_expr_single_inContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_expr_unaryContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_expr_unaryContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_literalContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Bool_literalContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Break_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Break_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Call_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Call_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Class_blockContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Class_blockContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Close_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Close_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Cmp_sourceContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Cmp_sourceContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Cmp_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Cmp_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Collect_stats_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Collect_stats_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Collect_stats_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Collect_stats_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$ColumnContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$ColumnContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Column_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Column_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Commit_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Commit_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Copy_file_optionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Copy_file_optionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Copy_from_local_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Copy_from_local_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Copy_optionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Copy_optionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Copy_sourceContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Copy_sourceContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Copy_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Copy_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Copy_targetContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Copy_targetContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_database_optionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_database_optionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_database_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_database_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_functionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_functionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_function_returnContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_function_returnContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_function_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_function_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_index_colContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_index_colContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_index_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_index_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_local_temp_table_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_local_temp_table_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_new_tableContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_new_tableContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_package_body_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_package_body_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_package_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_package_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_procedure_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_procedure_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_routine_optionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_routine_optionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_routine_optionsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_routine_optionsContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_routine_param_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_routine_param_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_routine_paramsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_routine_paramsContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_column_consContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_column_consContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_column_inline_consContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_column_inline_consContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_columnsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_columnsContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_columns_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_columns_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_definitionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_definitionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_fk_actionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_fk_actionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_hive_row_formatContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_hive_row_formatContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_hive_row_format_fieldsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_hive_row_format_fieldsContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_optionsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_optionsContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_options_db2_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_options_db2_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_options_hive_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_options_hive_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_options_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_options_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_options_mssql_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_options_mssql_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_options_mysql_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_options_mysql_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_options_ora_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_options_ora_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_options_td_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_options_td_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_preoptionsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_preoptionsContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_preoptions_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_preoptions_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_preoptions_td_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_preoptions_td_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Create_table_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Cte_select_colsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Cte_select_colsContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Cte_select_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Cte_select_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Cte_select_stmt_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Cte_select_stmt_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Cursor_with_returnContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Cursor_with_returnContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Cursor_without_returnContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Cursor_without_returnContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Date_literalContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Date_literalContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Dec_numberContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Dec_numberContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_blockContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_blockContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_block_inplaceContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_block_inplaceContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_condition_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_condition_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_cursor_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_cursor_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_handler_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_handler_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_stmt_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_stmt_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_temporary_table_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_temporary_table_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_var_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Declare_var_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Def_elseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Def_elseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Def_else_ifContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Def_else_ifContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Def_ifContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Def_ifContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Def_operationContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Def_operationContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Delete_aliasContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Delete_aliasContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Delete_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Delete_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Describe_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Describe_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Double_quotedStringContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Double_quotedStringContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Drop_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Drop_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$DtypeContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$DtypeContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Dtype_attrContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Dtype_attrContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Dtype_defaultContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Dtype_defaultContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Dtype_lenContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Dtype_lenContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Else_blockContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Else_blockContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Elseif_blockContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Elseif_blockContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$End_transaction_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$End_transaction_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Exception_blockContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Exception_blockContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Exception_block_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Exception_block_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Exec_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Exec_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Exit_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Exit_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$ExprContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$ExprContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_agg_window_funcContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_agg_window_funcContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_atomContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_atomContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_caseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_caseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_case_searchedContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_case_searchedContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_case_simpleContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_case_simpleContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_concatContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_concatContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_concat_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_concat_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_cursor_attributeContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_cursor_attributeContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_fileContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_fileContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_funcContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_funcContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_func_all_distinctContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_func_all_distinctContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_func_over_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_func_over_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_func_paramsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_func_paramsContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_func_partition_by_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_func_partition_by_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_intervalContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_intervalContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_selectContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_selectContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_spec_funcContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_spec_funcContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Expr_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Fetch_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Fetch_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$File_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$File_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$For_cursor_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$For_cursor_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$For_range_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$For_range_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$From_alias_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$From_alias_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$From_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$From_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$From_join_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$From_join_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$From_join_type_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$From_join_type_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$From_subselect_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$From_subselect_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$From_table_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$From_table_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$From_table_name_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$From_table_name_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$From_table_values_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$From_table_values_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$From_table_values_rowContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$From_table_values_rowContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Fullselect_set_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Fullselect_set_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Fullselect_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Fullselect_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Fullselect_stmt_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Fullselect_stmt_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Func_pContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Func_pContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Func_paramContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Func_paramContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Get_diag_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Get_diag_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Get_diag_stmt_exception_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Get_diag_stmt_exception_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Get_diag_stmt_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Get_diag_stmt_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Get_diag_stmt_rowcount_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Get_diag_stmt_rowcount_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Grant_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Grant_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Grant_stmt_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Grant_stmt_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Group_by_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Group_by_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Having_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Having_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$HiveContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$HiveContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Hive_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Hive_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$HostContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$HostContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Host_cmdContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Host_cmdContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Host_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Host_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$IdentContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$IdentContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$If_bteq_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$If_bteq_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$If_plsql_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$If_plsql_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$If_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$If_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$If_tsql_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$If_tsql_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Include_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Include_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Index_mssql_storage_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Index_mssql_storage_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Index_storage_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Index_storage_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Insert_directory_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Insert_directory_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Insert_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Insert_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Insert_stmt_colsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Insert_stmt_colsContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Insert_stmt_rowContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Insert_stmt_rowContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Insert_stmt_rowsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Insert_stmt_rowsContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Int_numberContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Int_numberContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Interval_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Interval_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Into_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Into_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$LabelContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$LabelContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Leave_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Leave_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Map_object_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Map_object_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Merge_actionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Merge_actionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Merge_conditionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Merge_conditionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Merge_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Merge_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Merge_tableContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Merge_tableContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$New_equal_to_varContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$New_equal_to_varContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$New_forContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$New_forContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$New_selectContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$New_selectContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$New_typeContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$New_typeContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Non_reserved_wordsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Non_reserved_wordsContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Null_constContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Null_constContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Null_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Null_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Open_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Open_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Order_by_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Order_by_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$PContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$PContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Package_bodyContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Package_bodyContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Package_body_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Package_body_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Package_specContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Package_specContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Package_spec_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Package_spec_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Print_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Print_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Proc_blockContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Proc_blockContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$ProgramContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$ProgramContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Qualify_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Qualify_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Quit_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Quit_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Raise_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Raise_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Resignal_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Resignal_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Return_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Return_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Rollback_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Rollback_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Select_listContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Select_listContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Select_list_aliasContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Select_list_aliasContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Select_list_asteriskContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Select_list_asteriskContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Select_list_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Select_list_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Select_list_limitContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Select_list_limitContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Select_list_setContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Select_list_setContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Select_optionsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Select_optionsContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Select_options_itemContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Select_options_itemContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Select_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Select_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Semicolon_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Semicolon_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Set_current_schema_optionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Set_current_schema_optionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Set_mssql_session_optionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Set_mssql_session_optionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Set_session_optionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Set_session_optionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Set_teradata_session_optionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Set_teradata_session_optionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Signal_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Signal_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Single_block_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Single_block_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Single_quotedStringContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Single_quotedStringContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$StmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$StmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$StringContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$StringContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Subselect_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Subselect_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Summary_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Summary_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Table_nameContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Table_nameContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Timestamp_literalContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Timestamp_literalContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Truncate_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Truncate_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Update_assignmentContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Update_assignmentContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Update_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Update_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Update_tableContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Update_tableContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Update_upsertContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Update_upsertContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Use_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Use_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Using_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Using_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Values_into_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Values_into_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$Where_clauseContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$Where_clauseContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$While_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$While_stmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser$XContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser$XContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/38/hqlVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/38/hqlVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/group38-compiler/MyVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/group38-compiler/MyVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/group38-compiler/tableList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/group38-compiler/tableList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -304,7 +29,16 @@
         <entry file="file://$PROJECT_DIR$/test.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/group38-compiler/src/MyVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="244" selection-start-line="244" selection-end-line="244" />
             </state>
           </provider>
         </entry>
@@ -312,12 +46,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/group38-compiler/src/tableList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="154" column="31" selection-start-line="154" selection-start-column="31" selection-end-line="154" selection-end-column="31" />
+            <state relative-caret-position="131">
+              <caret line="119" column="56" selection-start-line="119" selection-start-column="56" selection-end-line="119" selection-end-column="56" />
               <folding>
-                <element signature="method#createTableOutputData#0;class#tableList#0" />
-                <element signature="method#createTableOutputGroupedData#0;class#tableList#0" />
-                <element signature="method#createOrOverwirteTableListToFile#0;class#tableList#0" />
+                <element signature="method#getString#0;class#tableList#0" />
               </folding>
             </state>
           </provider>
@@ -326,8 +58,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/group38-compiler/src/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+            <state relative-caret-position="241">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -335,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/group38-compiler/src/map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+            <state relative-caret-position="216">
+              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#128#129#0" expanded="true" />
@@ -347,21 +82,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ReduceResult">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shuffleResult">
+        <entry file="file://$PROJECT_DIR$/group38-compiler/src/Reduce.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+            <state relative-caret-position="156">
+              <caret line="261" selection-start-line="261" selection-end-line="261" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapResult">
+        <entry file="file://$PROJECT_DIR$/ReduceResult">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shuffleResult">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -369,10 +111,19 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="153">
-                <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <first_editor relative-caret-position="1122">
+                <caret line="66" column="21" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MapResult">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -388,11 +139,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>[3</find>
-      <find>delemeter</find>
-      <find>AllTablesData</find>
-      <find>_map</find>
-      <find>Col_FirstTab</find>
       <find>Col_secTab_Type</find>
       <find>complete_rowType</find>
       <find>RowValue.get(index_right)</find>
@@ -418,6 +164,11 @@
       <find>Location</find>
       <find>records</find>
       <find>first</find>
+      <find>truncate</find>
+      <find>this._queryData.QueryTables</find>
+      <find>file</find>
+      <find>this._queryData.QueryTables.add</find>
+      <find>readTableListFromFile</find>
     </findStrings>
     <replaceStrings>
       <replace>fullouterjoin</replace>
@@ -440,20 +191,13 @@
         <option value="$PROJECT_DIR$/group38-compiler/src/AST.java" />
         <option value="$PROJECT_DIR$/group38-compiler/src/cTree.java" />
         <option value="$PROJECT_DIR$/group38-compiler/src/TreeNode.java" />
-        <option value="$PROJECT_DIR$/group38-compiler/src/conditionTree.java" />
-        <option value="$PROJECT_DIR$/group38-compiler/src/MyVisitor.java" />
         <option value="$PROJECT_DIR$/group38-compiler/src/shuffle.java" />
-        <option value="$PROJECT_DIR$/group38-compiler/src/map.java" />
         <option value="$PROJECT_DIR$/prices.csv" />
         <option value="$PROJECT_DIR$/quantities.csv" />
-        <option value="$PROJECT_DIR$/group38-compiler/src/Reduce.java" />
-        <option value="$PROJECT_DIR$/group38-compiler/src/Controller.java" />
-        <option value="$PROJECT_DIR$/test.txt" />
         <option value="$PROJECT_DIR$/prices/2.csv" />
         <option value="$PROJECT_DIR$/prices/3.csv" />
         <option value="$PROJECT_DIR$/prices/1.csv" />
         <option value="$PROJECT_DIR$/prices/head.csv" />
-        <option value="$PROJECT_DIR$/group38-compiler/src/tableList.java" />
         <option value="$PROJECT_DIR$/quantities/1.csv" />
         <option value="$PROJECT_DIR$/quantities/2.csv" />
         <option value="$PROJECT_DIR$/quantities/quantities.csv" />
@@ -463,13 +207,23 @@
         <option value="$PROJECT_DIR$/other/3.csv" />
         <option value="$PROJECT_DIR$/other/other.csv" />
         <option value="$PROJECT_DIR$/other/4.csv" />
+        <option value="$PROJECT_DIR$/ReduceResult" />
+        <option value="$PROJECT_DIR$/shuffleResult" />
+        <option value="$PROJECT_DIR$/MapResult" />
+        <option value="$PROJECT_DIR$/group38-compiler/src/conditionTree.java" />
+        <option value="$PROJECT_DIR$/group38-compiler/src/map.java" />
+        <option value="$PROJECT_DIR$/group38-compiler/src/tableList.java" />
+        <option value="$PROJECT_DIR$/group38-compiler/src/Reduce.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/group38-compiler/src/MyVisitor.java" />
+        <option value="$PROJECT_DIR$/group38-compiler/src/Controller.java" />
+        <option value="$PROJECT_DIR$/test.txt" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
+    <option name="x" value="386" />
+    <option name="y" value="277" />
     <option name="width" value="820" />
     <option name="height" value="620" />
   </component>
@@ -479,7 +233,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -503,6 +256,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -592,7 +346,8 @@
       <workItem from="1557144245971" duration="1000" />
       <workItem from="1557144333201" duration="1000" />
       <workItem from="1557144609877" duration="59247000" />
-      <workItem from="1557932372883" duration="18739000" />
+      <workItem from="1557932372883" duration="19520000" />
+      <workItem from="1559246602694" duration="8635000" />
     </task>
     <task id="LOCAL-00001" summary="more with where clause &#10;to support strucutred condition">
       <created>1555533594698</created>
@@ -643,11 +398,18 @@
       <option name="project" value="LOCAL" />
       <updated>1556419447442</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="final commit of me .... please read the ReadMe.md">
+      <created>1558132732172</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1558132732172</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219714000" />
+    <option name="totallyTimeSpent" value="229130000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -662,7 +424,7 @@
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49723756" visible="true" weight="0.17583893" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49723756" visible="true" weight="0.1785235" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -670,12 +432,12 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" sideWeight="0.50276244" side_tool="true" weight="0.1738255" />
       <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49731544" weight="0.3297587" />
-      <window_info anchor="bottom" id="ANTLR Preview" order="1" sideWeight="0.49731544" weight="0.5375335" />
+      <window_info anchor="bottom" id="ANTLR Preview" order="1" sideWeight="0.49731544" weight="0.30428955" />
       <window_info anchor="bottom" id="Tool Output" order="2" weight="0.3297587" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.3297587" />
       <window_info anchor="bottom" id="Run" order="5" sideWeight="0.49798658" weight="0.3914209" />
-      <window_info anchor="bottom" id="Debug" order="6" sideWeight="0.49328858" visible="true" weight="0.33512065" />
+      <window_info active="true" anchor="bottom" id="Debug" order="6" sideWeight="0.49328858" visible="true" weight="0.33512065" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="9" weight="0.3297587" />
@@ -706,40 +468,41 @@
     <MESSAGE value="clearing code" />
     <MESSAGE value="1 - create table query now able to add location and the delemeter of new table &#10;2 - ability to read from csv file whenever the delemeter is &#10;3 - initializing new class ( controller : that will control getting data process by work with map and other right class )" />
     <MESSAGE value="1 - starting with mapper : &#10;    1 - ability to get all data from all selected table &#10;    2 - ability to apply join between these table ( with just inner join for now )" />
-    <option name="LAST_COMMIT_MESSAGE" value="1 - starting with mapper : &#10;    1 - ability to get all data from all selected table &#10;    2 - ability to apply join between these table ( with just inner join for now )" />
+    <MESSAGE value="final commit of me .... please read the ReadMe.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="final commit of me .... please read the ReadMe.md" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/group38-compiler/src/MyVisitor.java</url>
-          <line>202</line>
+          <line>206</line>
           <properties />
           <option name="timeStamp" value="169" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/group38-compiler/src/MyVisitor.java</url>
-          <line>240</line>
+          <line>244</line>
           <properties />
           <option name="timeStamp" value="182" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/group38-compiler/src/AST.java</url>
-          <line>44</line>
-          <properties />
-          <option name="timeStamp" value="188" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/group38-compiler/src/MyVisitor.java</url>
-          <line>907</line>
+          <line>919</line>
           <properties />
           <option name="timeStamp" value="261" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/group38-compiler/src/Controller.java</url>
-          <line>30</line>
+          <line>23</line>
           <properties />
-          <option name="timeStamp" value="328" />
+          <option name="timeStamp" value="331" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/group38-compiler/src/Reduce.java</url>
+          <line>261</line>
+          <properties />
+          <option name="timeStamp" value="332" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -870,56 +633,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/group38-compiler/hql.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="3" selection-start-line="6" selection-end-line="6" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/group38-compiler/src/conditionTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#121#122#0" expanded="true" />
-            <element signature="e#158#159#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/group38-compiler/src/shuffle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/group38-compiler/src/table.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/group38-compiler/src/Reduce.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/group38-compiler/src/MyVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="239" column="44" selection-start-line="239" selection-start-column="44" selection-end-line="239" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -940,20 +657,7 @@
     <entry file="file://$PROJECT_DIR$/other.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/the-file-name.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/the-file-name.txt" />
     <entry file="file://$PROJECT_DIR$/prices/2.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1047,34 +751,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/group38-compiler/src/AST.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+        <state relative-caret-position="389">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/group38-compiler/src/conditionTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="30" column="51" lean-forward="true" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#121#122#0" expanded="true" />
+            <element signature="e#158#159#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/group38-compiler/hql.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/group38-compiler/src/shuffle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/group38-compiler/src/tableList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="154" column="31" selection-start-line="154" selection-start-column="31" selection-end-line="154" selection-end-column="31" />
+        <state relative-caret-position="131">
+          <caret line="119" column="56" selection-start-line="119" selection-start-column="56" selection-end-line="119" selection-end-column="56" />
           <folding>
-            <element signature="method#createTableOutputData#0;class#tableList#0" />
-            <element signature="method#createTableOutputGroupedData#0;class#tableList#0" />
-            <element signature="method#createOrOverwirteTableListToFile#0;class#tableList#0" />
+            <element signature="method#getString#0;class#tableList#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/group38-compiler/src/MyVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="244" selection-start-line="244" selection-end-line="244" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/group38-compiler/src/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+        <state relative-caret-position="241">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/group38-compiler/src/map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+        <state relative-caret-position="216">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#128#129#0" expanded="true" />
@@ -1083,24 +831,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ReduceResult">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shuffleResult">
+    <entry file="file://$PROJECT_DIR$/group38-compiler/src/Reduce.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+        <state relative-caret-position="156">
+          <caret line="261" selection-start-line="261" selection-end-line="261" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MapResult">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shuffleResult">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReduceResult">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="153">
-            <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <first_editor relative-caret-position="1122">
+            <caret line="66" column="21" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
           </first_editor>
           <second_editor />
         </state>

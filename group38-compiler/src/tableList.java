@@ -13,12 +13,16 @@ public class tableList implements Serializable{
         try {
             writer = new PrintWriter(FileName, "UTF-8");
 
-            for(int i = 0; i < Data.size(); i++){
-                String str = "";
-                for(int j = 0; j < Data.get(i).size(); j++){
-                    str += Data.get(i).get(j) + ", ";
+            if(Data != null) {
+                for (int i = 0; i < Data.size(); i++) {
+                    String str = "";
+                    for (int j = 0; j < Data.get(i).size(); j++) {
+                        str += Data.get(i).get(j) + ", ";
+                    }
+                    writer.println(str);
                 }
-                writer.println(str);
+            }else{
+                writer.println("");
             }
             writer.close();
 
@@ -34,15 +38,23 @@ public class tableList implements Serializable{
         PrintWriter writer = null;
         try {
             writer = new PrintWriter(FileName, "UTF-8");
-
-            for(int i = 0; i < Data.size(); i++){
-                String str = "";
-                for(int j = 0; j < Data.get(i).size(); j++){
-                    for(int k = 0; k < Data.get(i).get(j).size(); k++){
-                        str += Data.get(i).get(j).get(k) + ", ";
+            if (Data != null) {
+                for (int i = 0; i < Data.size(); i++) {
+                    if (Data.get(0) != null) {
+                        String str = "";
+                        for (int j = 0; j < Data.get(i).size(); j++) {
+                            for (int k = 0; k < Data.get(i).get(j).size(); k++) {
+                                str += Data.get(i).get(j).get(k) + ", ";
+                            }
+                            writer.println(str);
+                            str = "";
+                        }
+                        writer.println("");
+                    }else{
+                        writer.println("");
                     }
-                    writer.println(str);
                 }
+            }else{
                 writer.println("");
             }
             writer.close();
